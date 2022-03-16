@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/header :: head(title='Add Genre')"></head>
+<body>
+<header>
+    <nav th:replace="fragments/header :: nav"></nav>
+</header>
+
+<section id="add-genre">
+    <h2>Ajout d'un nouveau Genre :</h2>
+
+    <form th:object="${genre}" method="post" th:action="@{/genre}">
+        <div class="form-cast">
+            <div>
+                <p>
+                    <label for="libelle">Libelle :</label>
+                    <input type="text" id="libelle" th:field="*{libelle}"/>
+                    <span class="alert-danger" th:errors="*{libelle}"></span>
+                </p>
+            </div>
+        </div>
+        <div class="btn-submit-cast">
+            <button class="btn btn-success">Valider</button>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>

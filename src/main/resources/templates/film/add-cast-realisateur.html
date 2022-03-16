@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/header :: head(title='Add Cast Realisateur')"></head>
+<body>
+<header>
+    <nav th:replace="fragments/header :: nav"></nav>
+</header>
+
+<section id="add-cast">
+    <h2>Ajout d'un nouveau Realisateur :</h2>
+
+    <form th:object="${cast}" method="post" th:action="@{/cast/add-realisateur}">
+        <div class="form-cast">
+            <div>
+                <p>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" th:field="*{nom}"/>
+                    <span class="alert-danger" th:errors="*{nom}"></span>
+                </p>
+                <p>
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" id="prenom" th:field="*{prenom}"/>
+                    <span class="alert-danger" th:errors="*{prenom}"></span>
+                </p>
+            </div>
+          <!--  <div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="acteur" th:value="1" th:field="*{acteur}">
+                    <label class="form-check-label" for="acteur">Acteur</label>
+                    <span class="alert-danger" th:errors="*{acteur}"></span>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="realisateur" th:value="1" th:field="*{realisateur}">
+                    <label class="form-check-label" for="realisateur">Realisateur</label>
+                    <span class="alert-danger" th:errors="*{realisateur}"></span>
+                </div>
+            </div>-->
+        </div>
+        <div class="btn-submit-cast">
+            <button class="btn btn-success">Valider</button>
+        </div>
+
+    </form>
+</section>
+
+</body>
+</html>
+

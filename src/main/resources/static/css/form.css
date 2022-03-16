@@ -1,0 +1,15 @@
+.form-cast{
+    display: flex;
+    justify-content: center;
+}
+.form-cast div{
+    width: 400px;
+}
+.btn-submit-cast{
+    text-align: center !important;
+    margin-right: 15px;
+}
+#add-cast h2{
+    text-align: center !important;
+     margin: 25px 0 55px 0;
+}

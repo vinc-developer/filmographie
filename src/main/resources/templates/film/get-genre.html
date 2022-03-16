@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/header :: head(title='Genre')"></head>
+<body>
+    <header>
+        <nav th:replace="fragments/header :: nav"></nav>
+    </header>
+    <p th:if="${message}" class="success" th:text="${message}"></p>
+    <section id="list-card">
+        <h2>Listes des Genres de film</h2>
+        <div class="btn-add-card">
+            <a type="button" class="btn btn-success" th:href="@{/genre/formulaire-ajout-genre}" >Add Genre</a>
+        </div>
+
+        <div class="section-card-genre" th:if="genres != null">
+            <ul>
+                <li th:each="genre : ${genres}">
+                    <span th:text="${genre.libelle}"></span>
+                    <div class="group-button-genre">
+                        <a type="button" class="btn btn-warning">Modifier</a>
+                        <a type="button" class="btn btn-danger">Supprimer</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>

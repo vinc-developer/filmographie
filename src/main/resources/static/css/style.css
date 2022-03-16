@@ -1,0 +1,152 @@
+.green-text{
+    color: green !important;
+}
+.red-text{
+    color: red !important;
+}
+header{
+    text-decoration: none;
+}
+#body-home{
+    padding: 15px;
+}
+#body-home h3{
+    font-weight: bold;
+    margin: 35px 0 0 0;
+    text-decoration: underline;
+}
+
+.success{
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+    width: 90%;
+    font-weight: bold;
+    margin: auto;
+    background-color: green;
+}
+
+/* CAST */
+#list-card{
+    text-align: center;
+}
+.card-cast{
+    width: 300px !important;
+    text-align: center;
+    margin: 15px 2px;
+}
+.btn-add-card{
+    text-align: end !important;
+    margin-right: 15px;
+}
+.section-card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* GENRES */
+
+#add-genre h2{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-card-genre ul li{
+    font-size: 25px;
+    text-transform: uppercase;
+    display: block ruby;
+    margin: 25px auto;
+}
+.group-button-genre{
+    padding-left: 15px;
+    border-left: 3px solid black;
+    margin-left: 15px;
+}
+ /* FILM */
+.card-film{
+    height: 800px;
+    /*overflow: auto;*/
+}
+.card-film h5{
+    font-weight: bold;
+}
+.card-titre-film{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.card-titre-film h6{
+    font-size: 12px;
+}
+
+/* FILM ADD*/
+.form-group{
+    width: 100% !important;
+    margin: 10px 0;
+}
+.form-group input.input-width{
+    width: 100% !important;
+}
+.form-group label{
+   font-weight: bold;
+}
+
+.form-group h5{
+  margin: 25px 0;
+}
+
+.form-film div{
+    width: 600px;
+}
+.form-film{
+    display: flex;
+    justify-content: center;
+}
+.form-check{
+    width: 300px !important;
+}
+.form-check label{
+    width: 150px;
+    margin-left: 15px;
+}
+
+.form-check-film{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cache{
+    display: none !important;
+}
+ /* HOME */
+
+#home{
+    text-align: center;
+}
+#list-film-home{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.card-film .card-body p{
+    height: 100px;
+    overflow: auto;
+}
+.card-film img.card-img-top{
+    height: 380px !important;
+}
+#list-film-home-action{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 55px;
+}
+#list-film-home-science{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 55px;
+}

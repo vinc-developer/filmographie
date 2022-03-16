@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/header :: head(title='Add Genre')"></head>
+<body>
+    <header>
+        <nav th:replace="fragments/header :: nav"></nav>
+    </header>
+    <section id="add-genre">
+        <h2>Ajout d'un nouveau Film :</h2>
+
+        <form th:object="${film}" method="post" th:action="@{/film}">
+             <div class="form-film">
+                <div>
+                    <div class="form-group">
+                        <label for="titre">Titre :</label>
+                        <input class="input-width" type="text" id="titre" th:field="*{titre}"/>
+                        <span class="alert-danger" th:errors="*{titre}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateSortie">Date :</label>
+                        <input class="input-width" type="date" id="dateSortie" th:field="*{dateSortie}"/>
+                        <span class="alert-danger" th:errors="*{dateSortie}"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="duree">Durée(min) :</label>
+                        <input class="input-width" type="number" id="duree" th:field="*{duree}"/>
+                        <span class="alert-danger" th:errors="*{duree}"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here"  id="floatingTextarea" th:field="*{synopsis}"></textarea>
+                            <label for="floatingTextarea">Synopsis</label>
+                            <span class="alert-danger" th:errors="*{synopsis}"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urlImage">Url de l'image :</label>
+                        <input class="input-width" type="text" id="urlImage" th:field="*{urlImage}"/>
+                        <span class="alert-danger" th:errors="*{urlImage}"></span>
+                    </div>
+                    <div class="form-group">
+                        <h4>Genre :</h4>
+                        <div class="form-check-film">
+                            <div class="form-check" th:each="g : ${genres}">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" th:field="*{genre}" th:value="${g.id}">
+                                <label class="form-check-label" for="flexRadioDefault1" th:text="${g.libelle}"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>Casts :</h4>
+
+                        <h5>Acteur</h5>
+                        <div class="form-check-film">
+                            <div class="form-check" th:each="c : ${castsActeur}">
+                                <div>
+                                    <input class="form-check-input " type="checkbox" id="flexCheckDefault" th:field="*{castActeur}" th:value="${c.id}">
+                                    <label class="form-check-label" for="flexCheckDefault" th:text="|${c.prenom} ${c.nom}|"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Réalisateur</h5>
+                        <div class="form-check-film">
+                            <div class="form-check" th:each="c : ${castsRealisateur}">
+                                <div>
+                                    <input class="form-check-input " type="radio" id="flexCheckDefault" th:field="*{castRealisateur}" th:value="${c.id}">
+                                    <label class="form-check-label" for="flexCheckDefault" th:text="|${c.prenom} ${c.nom}|"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <div class="btn-submit-cast">
+                <button class="btn btn-success">Valider</button>
+            </div>
+
+        </form>
+    </section>
+</body>
+</html>
