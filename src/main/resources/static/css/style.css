@@ -1,3 +1,7 @@
+body{
+    background-color: black !important;
+    color: antiquewhite !important;
+}
 .green-text{
     color: green !important;
 }
@@ -31,19 +35,26 @@ header{
 #list-card{
     text-align: center;
 }
+#list-card .btn-add-card{
+    margin: 35px auto 65px auto;
+}
 .card-cast{
     width: 300px !important;
     text-align: center;
     margin: 15px 2px;
 }
 .btn-add-card{
-    text-align: end !important;
-    margin-right: 15px;
-}
+    text-align: center !important;
+    margin: 15px auto;
+    width: 350px !important;
+}.btn-add-card a{
+     width: 100%;
+ }
 .section-card{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    color: black;
 }
 
 /* GENRES */
@@ -94,11 +105,12 @@ header{
 .form-group label{
    font-weight: bold;
 }
-
+.floatingTextarea{
+    color: black;
+}
 .form-group h5{
   margin: 25px 0;
 }
-
 .form-film div{
     width: 600px;
 }
@@ -113,14 +125,20 @@ header{
     width: 150px;
     margin-left: 15px;
 }
-
 .form-check-film{
     display: flex;
     flex-wrap: wrap;
 }
-
 .cache{
     display: none !important;
+}
+.btn-submit-film{
+    width: 350px !important;
+    margin: 25px auto;
+}
+.btn-submit-film button{
+    width: 350px !important;
+    margin: 25px auto;
 }
  /* HOME */
 
@@ -129,9 +147,17 @@ header{
 }
 #list-film-home{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 50px;
+    margin-left: 55px;
+}
+.header-admin{
+    display: flex;
+    justify-content: space-between;
+}
+.card-film{
+    margin-left: 30px;
+    color: black;
 }
 .card-film .card-body p{
     height: 100px;
@@ -142,6 +168,16 @@ header{
 }
 .card-body{
     overflow: auto;
+}
+#list-card h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
+#list-card h3{
+    text-align: center;
+    font-size: 35px;
+    margin: 25px 0 45px 0;
 }
 #list-film-home-action{
     display: flex;
@@ -157,6 +193,8 @@ header{
 }
 .card-film-home{
     height: 450px;
+    margin-left: 30px;
+    color: black;
 }
 .card-film-home a{
     height: 100%;
@@ -164,4 +202,53 @@ header{
 .card-film-home a img.card-img-top{
     height: 100%;
     width: 100%;
+}
+
+/* film Get Id*/
+#section-film h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
+#section-film h3{
+    width: 660px;
+    text-align: left;
+    margin: 25px auto;
+}
+.video{
+    display: flex;
+    justify-content: center;
+}
+.synopsis{
+    display: flex;
+    justify-content: center;
+    width: 660px;
+    margin: auto;
+}
+.img-film{
+    width: 200px;
+}
+.info-film{
+    width: 660px;
+    text-align: left;
+    margin: 35px auto;
+    display: flex;
+}
+.section-info-film{
+    width: 460px;
+    padding: 20px;
+}
+.section-info-film p{
+    color: grey;
+}
+.section-info-film div{
+    color: grey;
+}
+.section-info-film p span{
+    font-weight: bold;
+
+}
+.section-info-film li{
+    font-weight: bold;
+
 }

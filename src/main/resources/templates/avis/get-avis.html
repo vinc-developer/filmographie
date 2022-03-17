@@ -2,20 +2,22 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Get Avis')"></head>
 <body>
-<header>
-    <nav th:replace="fragments/header :: nav"></nav>
-</header>
-<p th:if="${message}" class="success" th:text="${message}"></p>
+    <header th:replace="fragments/header :: header"></header>
+    
+    <p th:if="${message}" class="success" th:text="${message}"></p>
+
     <section id="list-avis">
         <h2>List des avis du film <span th:text="${film.titre}"></span></h2>
         <div class="btn-add-card">
-            <a type="button" class="btn btn-success" th:href="@{'/avis/add-avis/' + ${film.id}}" >Add Avis</a>
+            <a type="button" class="btn btn-success" th:href="@{'/avis/add-avis/' + ${film.id}}" >Ajouter un Avis</a>
         </div>
     </section>
 
     <section id="list-card-avis">
         <div class="card text-center card-avis" th:each="avis : ${allAvis}">
-            <div class="card-header" th:text="| Avis de  ${avis.user}|"></div>
+            <div class="card-header">
+                <span th:text="| Avis de  ${avis.user}|"></span>
+            </div>
             <div class="card-body">
                 <div class="rating-css">
                     <div class="star-icon" th:if="${avis.note == 1}">
@@ -57,6 +59,9 @@
                 <h6>Commentaire :</h6>
                 <p class="card-text" th:text="${avis.commentaire}"></p>
                 <p th:text="|Posté le ${avis.dateAjout}|"></p>
+                <div class="btn-avis-delete">
+                    <button type="button" class="btn btn-danger btn-avis-delete">Delete</button>
+                </div>
             </div>
         </div>
     </section>

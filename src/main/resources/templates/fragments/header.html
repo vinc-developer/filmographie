@@ -11,30 +11,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <title th:text="${title}"></title>
 </head>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Filmography</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/cast}">Cast</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/genre}">Genre</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Avis</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/film}">Film</a>
-                </li>
-
-            </ul>
+<header>
+    <div class="info-header">
+        <div>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="insta"><i class="bi bi-instagram"></i></a>
         </div>
+        <p th:if="${user != null}">Welcome : <span class="success-co" th:text=" ${user.username}"></span> </p>
+        <p th:if="${user == null}">Vous n'êtes pas connecté !</p>
     </div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Filmography</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/cast}">Cast</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/genre}">Genre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/film}">Film</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 </html>

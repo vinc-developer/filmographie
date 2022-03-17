@@ -52,6 +52,7 @@ public class FilmController {
     public String getById(@PathVariable String id, Model model){
         // get by id service
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
+        model.addAttribute("avgAvis", 3);
         return "/film/get-id-film.html";
     }
 

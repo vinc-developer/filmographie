@@ -2,11 +2,67 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Film')"></head>
 <body>
-    <header>
-        <nav th:replace="fragments/header :: nav"></nav>
-    </header>
-    <section>
+<header th:replace="fragments/header :: header"></header>
+    <section id="section-film">
         <h2 th:text="${film.titre}"></h2>
+
+        <div class="video">
+            <iframe width="660" height="415" th:src="${film.urlVideo}" ></iframe>
+        </div>
+        <div class="info-film">
+            <div class="section-img-film">
+                <img th:src="${film.urlImage}" class="img-film" alt="..." />
+            </div>
+            <div class="section-info-film">
+                <p>Date de sortie <span th:text="${#temporals.format(film.dateSortie, 'dd-MMMM-yyyy')}"></span></p>
+                <p>Durée <span th:text="| ${film.duree} min|"></span></p>
+                <p>Par <span th:text="|Par ${film.castRealisateur.prenom} ${film.castRealisateur.nom}|"></span></p>
+                <div>Avec
+                    <ul>
+                        <li th:each="cast : ${film.castActeur}" th:text="|${cast.prenom} ${cast.nom} |"></li>
+                    </ul>
+                </div>
+                <div class="rating-css-film">Moyenne <a th:href="@{'/avis/get-all/' + ${film.id}}">avis</a> :
+                    <div class="star-icon" th:if="${avgAvis == 1}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avgAvis == 2}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avgAvis == 3}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avgAvis == 4}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avgAvis == 5}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Synopsis</h3>
+        <div class="synopsis" th:text="${film.synopsis}"></div>
     </section>
 </body>
 </html>

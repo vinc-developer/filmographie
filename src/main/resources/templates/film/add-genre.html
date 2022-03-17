@@ -2,12 +2,10 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Add Genre')"></head>
 <body>
-<header>
-    <nav th:replace="fragments/header :: nav"></nav>
-</header>
+<header th:replace="fragments/header :: header"></header>
 
 <section id="add-genre">
-    <h2>Ajout d'un nouveau Genre :</h2>
+    <h2>Ajout d'un nouveau Genre</h2>
 
     <form th:object="${genre}" method="post" th:action="@{/genre}">
         <div class="form-cast">

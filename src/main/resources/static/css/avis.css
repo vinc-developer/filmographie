@@ -44,6 +44,9 @@
 .form-avis .form-group .form-floating{
     width: 500px !important;
 }
+.form-avis .form-group .form-floating label{
+    color: black;
+}
 .star-none{
     font-weight: normal !important;
     color: #838383;
@@ -53,5 +56,20 @@
     margin: 25px auto;
 }
 #list-card-avis{
-
+    color: black;
+}
+.rating-css-film div{
+    color: #ffe400;
+    width: max-content !important;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+.rating-css-film {
+    display: block ruby;
+}
+.btn-avis-delete{
+    display: grid;
 }

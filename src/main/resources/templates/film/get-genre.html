@@ -2,10 +2,10 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Genre')"></head>
 <body>
-    <header>
-        <nav th:replace="fragments/header :: nav"></nav>
-    </header>
+    <header th:replace="fragments/header :: header"></header>
+
     <p th:if="${message}" class="success" th:text="${message}"></p>
+
     <section id="list-card">
         <h2>Listes des Genres de film</h2>
         <div class="btn-add-card">

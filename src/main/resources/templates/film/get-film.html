@@ -1,10 +1,10 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Film')"></head>
 <body>
-<header>
-    <nav th:replace="fragments/header :: nav"></nav>
-</header>
-<p th:if="${message}" class="success" th:text="${message}"></p>
+    <header th:replace="fragments/header :: header"></header>
+
+    <p th:if="${message}" class="success" th:text="${message}"></p>
+
 <section id="list-card">
     <h2>List des Films</h2>
     <div class="btn-add-card">
@@ -14,7 +14,13 @@
 
 <section id="list-film-home">
     <div class="card card-film" style="width: 18rem;" th:each="film : ${films}">
-        <div class="card-header" th:text="${film.genre.libelle}"></div>
+        <div class="card-header header-admin">
+            <span  th:text="${film.genre.libelle}"></span>
+            <div class="group-button">
+                <a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a>
+                <a type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
+            </div>
+        </div>
         <img th:src="${film.urlImage}" class="card-img-top" alt="...">
         <div class="card-body">
             <div class="card-titre-film">

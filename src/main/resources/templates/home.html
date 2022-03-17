@@ -2,17 +2,8 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Home Page')"></head>
 <body>
-    <header>
-        <div class="info-header">
-            <div>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="insta"><i class="bi bi-instagram"></i></a>
-            </div>
-            <p th:if="${user != null}">Welcome : <span class="success-co" th:text=" ${user.username}"></span> </p>
-            <p th:if="${user == null}">Vous n'êtes pas connecté !</p>
-        </div>
-       <nav th:replace="fragments/header :: nav"></nav>
-    </header>
+    <header th:replace="fragments/header :: header"></header>
+
     <div id="body-home">
         <section id="home">
             <h1>Welcome to Filmothèque World</h1>
