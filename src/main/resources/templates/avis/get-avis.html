@@ -5,6 +5,7 @@
 <header>
     <nav th:replace="fragments/header :: nav"></nav>
 </header>
+<p th:if="${message}" class="success" th:text="${message}"></p>
     <section id="list-avis">
         <h2>List des avis du film <span th:text="${film.titre}"></span></h2>
         <div class="btn-add-card">

@@ -20,6 +20,8 @@ public class Film {
 
     private String urlImage;
 
+    private String urlVideo;
+
     private Genre genre;
 
     private List<CastActeur> castActeur;
@@ -31,17 +33,26 @@ public class Film {
     public Film() {
     }
 
-    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur, List<Avis> avisList) {
+    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, String urlVideo, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur, List<Avis> avisList) {
         this.id = id;
         this.titre = titre;
         this.dateSortie = dateSortie;
         this.duree = duree;
         this.synopsis = synopsis;
         this.urlImage = urlImage;
+        this.urlVideo = urlVideo;
         this.genre = genre;
         this.castActeur = castActeur;
         this.castRealisateur = castRealisateur;
         this.avisList = avisList;
+    }
+
+    public String getUrlVideo() {
+        return urlVideo;
+    }
+
+    public void setUrlVideo(String urlVideo) {
+        this.urlVideo = urlVideo;
     }
 
     public int getId() {

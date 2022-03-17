@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -45,6 +46,13 @@ public class FilmController {
         model.addAttribute("castsActeur", castActeurService.getAllCast());
         model.addAttribute("castsRealisateur", castRealisateurService.getAllCast());
         return "/film/add-film.html";
+    }
+
+    @GetMapping("/get-one/{id}")
+    public String getById(@PathVariable String id, Model model){
+        // get by id service
+        model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
+        return "/film/get-id-film.html";
     }
 
     @PostMapping()

@@ -41,6 +41,11 @@
                         <span class="alert-danger" th:errors="*{urlImage}"></span>
                     </div>
                     <div class="form-group">
+                        <label for="urlImage">Url de la video :</label>
+                        <input class="input-width" type="text" id="urlImage" th:field="*{urlVideo}"/>
+                        <span class="alert-danger" th:errors="*{urlVideo}"></span>
+                    </div>
+                    <div class="form-group">
                         <h4>Genre :</h4>
                         <div class="form-check-film">
                             <div class="form-check" th:each="g : ${genres}">
