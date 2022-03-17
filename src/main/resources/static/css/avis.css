@@ -1,0 +1,41 @@
+#add-film h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
+.rating-css {
+}
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+.rating-css input {
+    display: none;
+}
+.rating-css input + label {
+    font-size: 60px;
+    cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+    color: #838383;
+}
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+}
+.form-avis textarea {
+    height: 100px !important;
+}
+.form-avis .form-group{
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+}
+.form-avis .form-group .form-floating{
+    width: 500px !important;
+}

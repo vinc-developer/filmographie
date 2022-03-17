@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="fragments/header :: head(title='Add Avis')"></head>
 <body>
+<header>
+    <nav th:replace="fragments/header :: nav"></nav>
+</header>
+
+<section id="add-film">
+    <h2>Ajout d'un nouvelle avis</h2>
+    <form class="form-avis">
+        <div class="rating-css">
+            <div class="star-icon">
+                <input type="radio" name="rating1" id="rating1">
+                <label for="rating1" class="fa fa-star"></label>
+                <input type="radio" name="rating1" id="rating2">
+                <label for="rating2" class="fa fa-star"></label>
+                <input type="radio" name="rating1" id="rating3">
+                <label for="rating3" class="fa fa-star"></label>
+                <input type="radio" name="rating1" id="rating4">
+                <label for="rating4" class="fa fa-star"></label>
+                <input type="radio" name="rating1" id="rating5">
+                <label for="rating5" class="fa fa-star"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here"  id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Comment</label>
+                <span class="alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="btn-submit-cast">
+            <button class="btn btn-success">Valider</button>
+        </div>
+    </form>
+
+</section>
 
 </body>
 </html>
