@@ -5,6 +5,59 @@
 <header>
     <nav th:replace="fragments/header :: nav"></nav>
 </header>
+    <section id="list-avis">
+        <h2>List des avis du film <span th:text="${film.titre}"></span></h2>
+        <div class="btn-add-card">
+            <a type="button" class="btn btn-success" th:href="@{'/avis/add-avis/' + ${film.id}}" >Add Avis</a>
+        </div>
+    </section>
 
+    <section id="list-card-avis">
+        <div class="card text-center card-avis" th:each="avis : ${allAvis}">
+            <div class="card-header" th:text="| Avis de  ${avis.user}|"></div>
+            <div class="card-body">
+                <div class="rating-css">
+                    <div class="star-icon" th:if="${avis.note == 1}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avis.note == 2}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avis.note == 3}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avis.note == 4}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
+                    <div class="star-icon" th:if="${avis.note == 5}">
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                        <label class="fa fa-star"></label>
+                    </div>
+                </div>
+                <h6>Commentaire :</h6>
+                <p class="card-text" th:text="${avis.commentaire}"></p>
+                <p th:text="|Posté le ${avis.dateAjout}|"></p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

@@ -21,73 +21,42 @@
 
         <h3>Les derniers Ajouts :</h3>
         <section id="list-film-home">
-            <div class="card card-film" style="width: 18rem;" th:each="film : ${films}">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <img th:src="${film.urlImage}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-titre-film">
-                        <h5 class="card-title" th:text="${film.titre}"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted" th:text="|${film.duree} min|"></h6>
-                    </div>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${#temporals.format(film.dateSortie, 'dd-MMMM-yyyy')}"></h6>
-                    <h6><a href="#">Avis</a></h6>
-                    <p class="card-text" th:text="${film.synopsis}"></p>
-                    <ul>
-                        <h5>Acteurs :</h5>
-                       <li th:each="cast : ${film.castActeur}"><span th:text="|${cast.prenom} ${cast.nom} |">
-                       </span></li>
-                        <h5>Realisateur :</h5>
-                        <li th:text="|${film.castRealisateur.prenom} ${film.castRealisateur.nom}|"></li>
-                    </ul>
-                </div>
+                <a href="#">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
             </div>
         </section>
 
         <h3>Film d'Action</h3>
         <section id="list-film-home-action">
-            <div class="card card-film" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 4}">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 4}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <img th:src="${film.urlImage}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-titre-film">
-                        <h5 class="card-title" th:text="${film.titre}"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted" th:text="|${film.duree} min|"></h6>
-                    </div>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${#temporals.format(film.dateSortie, 'dd-MMMM-yyyy')}"></h6>
-                    <h6><a href="#">Avis</a></h6>
-                    <p class="card-text" th:text="${film.synopsis}"></p>
-                    <ul>
-                        <h5>Acteurs :</h5>
-                        <li th:each="cast : ${film.castActeur}"><span th:text="|${cast.prenom} ${cast.nom} |">
-                       </span></li>
-                        <h5>Realisateur :</h5>
-                        <li th:text="|${film.castRealisateur.prenom} ${film.castRealisateur.nom}|"></li>
-                    </ul>
-                </div>
+                <a href="#">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+
             </div>
         </section>
 
         <h3>Film de Science-Fiction</h3>
         <section id="list-film-home-science">
-            <div class="card card-film" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 2}">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 2}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <img th:src="${film.urlImage}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <div class="card-titre-film">
-                        <h5 class="card-title" th:text="${film.titre}"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted" th:text="|${film.duree} min|"></h6>
-                    </div>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${#temporals.format(film.dateSortie, 'dd-MMMM-yyyy')}"></h6>
-                    <h6><a href="#">Avis</a></h6>
-                    <p class="card-text" th:text="${film.synopsis}"></p>
-                    <ul>
-                        <h5>Acteurs :</h5>
-                        <li th:each="cast : ${film.castActeur}"><span th:text="|${cast.prenom} ${cast.nom} |">
-                       </span></li>
-                        <h5>Realisateur :</h5>
-                        <li th:text="|${film.castRealisateur.prenom} ${film.castRealisateur.nom}|"></li>
-                    </ul>
-                </div>
+                <a href="#">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </section>
+
+        <h3>Film de Commédie</h3>
+        <section id="list-film-home-science">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 3}">
+                <div class="card-header" th:text="${film.genre.libelle}"></div>
+                <a href="#">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
             </div>
         </section>
     </div>

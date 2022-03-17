@@ -3,6 +3,11 @@
     font-size: 55px;
     margin: 25px 0 45px 0;
 }
+#list-avis h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
 .rating-css {
 }
 .rating-css div {
@@ -38,4 +43,15 @@
 }
 .form-avis .form-group .form-floating{
     width: 500px !important;
+}
+.star-none{
+    font-weight: normal !important;
+    color: #838383;
+}
+.card-avis{
+    width: 500px;
+    margin: 25px auto;
+}
+#list-card-avis{
+
 }

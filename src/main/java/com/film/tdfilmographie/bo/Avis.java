@@ -10,7 +10,7 @@ public class Avis {
 
     private String commentaire;
 
-    private LocalDate dateAjout;
+    private LocalDate dateAjout = LocalDate.now();
 
     private User user;
 

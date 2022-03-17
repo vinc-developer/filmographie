@@ -9,4 +9,6 @@ public interface FilmImpl {
     public List<Film> getAllFilm();
 
     public void ajoutFilm(Film film);
+
+    public Film getById(int id);
 }

@@ -65,6 +65,7 @@ header{
     border-left: 3px solid black;
     margin-left: 15px;
 }
+
  /* FILM */
 .card-film{
     height: 800px;
@@ -153,4 +154,14 @@ header{
     flex-wrap: wrap;
     margin-top: 50px;
     margin-left: 55px;
+}
+.card-film-home{
+    height: 450px;
+}
+.card-film-home a{
+    height: 100%;
+}
+.card-film-home a img.card-img-top{
+    height: 100%;
+    width: 100%;
 }

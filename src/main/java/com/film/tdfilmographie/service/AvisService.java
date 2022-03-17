@@ -43,7 +43,8 @@ public class AvisService implements AvisImpl {
     }
 
     @Override
-    public List<Avis> getAllAvis() {
+    public List<Avis> getAll(int id) {
+        System.out.println(id);
         if(avisList.size() == 0){
             return null;
         }

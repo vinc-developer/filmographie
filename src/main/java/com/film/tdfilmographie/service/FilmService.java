@@ -64,7 +64,7 @@ public class FilmService implements FilmImpl {
         Genre G3 = new Genre(3,"Comedie");
         LocalDate dateSortie3 = LocalDate.of(2014, 04, 16);
 
-        Film F3 = new Film(2, "Babysitting", dateSortie3, 84, "Faute de baby-sitter pour le week-end, Marc Schaudel confie son fils Remy à Franck, son employé, \"un type sérieux\" selon lui. Sauf que Franck a 30 ans ce soir et que Rémy est un sale gosse capricieux. Au petit matin, Marc et sa femme Claire sont réveillés par un appel de la police. Rémy et Franck ont disparu ! Au milieu de leur maison saccagée, la police a retrouvé une caméra. Marc et Claire découvrent hallucinés les images tournées pendant la soirée.", "https://fr.web.img6.acsta.net/pictures/14/01/22/09/59/509268.jpg", G3, castList3, CR3, null );
+        Film F3 = new Film(3, "Babysitting", dateSortie3, 84, "Faute de baby-sitter pour le week-end, Marc Schaudel confie son fils Remy à Franck, son employé, \"un type sérieux\" selon lui. Sauf que Franck a 30 ans ce soir et que Rémy est un sale gosse capricieux. Au petit matin, Marc et sa femme Claire sont réveillés par un appel de la police. Rémy et Franck ont disparu ! Au milieu de leur maison saccagée, la police a retrouvé une caméra. Marc et Claire découvrent hallucinés les images tournées pendant la soirée.", "https://fr.web.img6.acsta.net/pictures/14/01/22/09/59/509268.jpg", G3, castList3, CR3, null );
         filmList.add(F3);
     }
 
@@ -76,5 +76,28 @@ public class FilmService implements FilmImpl {
     @Override
     public void ajoutFilm(Film film) {
         filmList.add(film);
+    }
+
+    @Override
+    public Film getById(int id) {
+
+        List<CastActeur> castList1 = new ArrayList<>();
+
+        //Avatar
+        CastActeur C1 = new CastActeur(1, "Tom", "Hanks");
+        CastActeur C2 = new CastActeur(2, "Robin", "Wright");
+        CastRealisateur CR1 = new CastRealisateur(1, "Robert", "Zemeckis");
+
+        castList1.add(C1);
+        castList1.add(C2);
+
+        Genre G3 = new Genre(3,"Comedie");
+        LocalDate dateSortie1 = LocalDate.of(1994, 10, 5);
+
+        Film F1 = new Film(1, "Forrest Gump", dateSortie1, 160, "Quelques décennies d'histoire américaine, des années 1940 à la fin du XXème siècle, à travers le regard et l'étrange odyssée d'un homme simple et pur, Forrest Gump. ", "https://fr.web.img4.acsta.net/pictures/15/10/13/15/12/514297.jpg", G3, castList1, CR1 ,null );
+        filmList.add(F1);
+
+        // get film by id
+        return F1;
     }
 }
