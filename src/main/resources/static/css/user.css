@@ -1,0 +1,90 @@
+.back-black{
+    background: transparent;
+    height: 100%;
+}
+
+.img-background{
+    background-color: black;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    opacity: 0.5;
+}
+.img-background img{
+    height: 100%;
+    width: 100%;
+}
+.header-co{
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to bottom,rgba(0,0,0,.5) 0,rgba(0,0,0,0) 100%);
+}
+.header-co h1{
+    color: red;
+    font-weight: bold;
+    width: 100%;
+    font-size: 55px;
+    padding: 10px;
+}
+
+#login{
+    position: absolute;
+    margin: 150px auto auto 40%;
+    width: 450px;
+    color: white;
+    background-color: rgba(0,0,0,.85);
+    height: 450px !important;
+    padding: 40px !important;
+}
+#login h2{
+    margin: 5px auto 30px auto;
+}
+#login input{
+    background-color: grey;
+    color: antiquewhite;
+    font-weight: bold;
+}
+#login button{
+    width: 100%;
+    background-color: red !important;
+    margin-top: 25px;
+}
+#login .form-check{
+    margin-top: 25px;
+}
+
+#login p{
+    margin-top: 25px;
+}
+#register{
+    position: absolute;
+    margin: 150px auto auto 40%;
+    width: 450px;
+    color: white;
+    background-color: rgba(0,0,0,.85);
+    height: 750px !important;
+    padding: 40px !important;
+}
+#register h2{
+    margin: 5px auto 30px auto;
+}
+#register input{
+    background-color: grey;
+    color: antiquewhite;
+    font-weight: bold;
+}
+#register button{
+    width: 100%;
+    background-color: red !important;
+    margin-top: 25px;
+}
+#register .form-check{
+    margin-top: 25px;
+}
+
+#register p{
+    margin-top: 25px;
+}

@@ -1,7 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="fragments/header :: head(title='Add Avis')"></head>
-<body>
-
+<head th:replace="fragments/header :: head(title='Register')"></head>
+<body id="body-user">
+<div  class="back-black">
+    <div id="login-general">
+        <div class="img-background">
+            <img th:src="@{/images/mosaique1.jpg}" >
+        </div>
+        <header class="header-co">
+            <h1>City Ciné</h1>
+        </header>
+        <section id="register">
+            <h2>S'enregistrer</h2>
+            <form th:object="${user}" method="post" th:action="@{/user/add-register}">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nom" placeholder="nom" th:field="*{nom}">
+                    <label for="nom">Nom</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="prenom" placeholder="prenom" th:field="*{prenom}">
+                    <label for="prenom">Prenom</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="username" placeholder="username" th:field="*{username}">
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" th:field="*{email}">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
+                    <label for="password">Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
+                    <label for="confirmPassword">Confirm Password</label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" th:field="*{admin}">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Admin</label>
+                </div>
+                <button class="btn btn-danger">Enregistrer</button>
+            </form>
+            <p>Déja inscrit ? <a th:href="@{/user/login}">Inscrivez vous.</a></p>
+        </section>
+    </div>
+</div>
 </body>
 </html>

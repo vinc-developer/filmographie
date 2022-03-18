@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+<head th:replace="fragments/header :: head(title='Login')"></head>
+<body id="body-user">
+    <div  class="back-black">
+        <div id="login-general">
+            <div class="img-background">
+                <img th:src="@{/images/mosaique1.jpg}" >
+            </div>
+            <header class="header-co">
+                <h1>City Ciné</h1>
+            </header>
+            <section id="login">
+                <h2>Se connecter</h2>
+                <form method="post" th:action="@{/user/connection}">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <a href="#">Mot de passe oublié</a>
+                    <button class="btn btn-danger">S'identifier</button>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Se souvenir de moi
+                        </label>
+                    </div>
+                </form>
+                <p>Prenmière visite ? <a th:href="@{/user/register}">Inscrivez vous.</a></p>
+            </section>
+        </div>
+    </div>
 </body>
 </html>

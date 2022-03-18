@@ -9,6 +9,8 @@
     <form class="form-avis" th:object="${avis}" method="post" th:action="@{'/avis/insert/' + ${id} }">
         <div class="rating-css">
             <div class="star-icon">
+                <input type="radio" class="label-checked" name="rating1" id="rating0" th:field="*{note}" th:value="0">
+                <label for="rating0" class="fa fa-star radio-zero">0</label>
                 <input type="radio" name="rating1" id="rating1" th:field="*{note}" th:value="1">
                 <label for="rating1" class="fa fa-star"></label>
                 <input type="radio" name="rating1" id="rating2"  th:field="*{note}" th:value="2">
@@ -18,10 +20,19 @@
                 <input type="radio" name="rating1" id="rating4"  th:field="*{note}" th:value="4">
                 <label for="rating4" class="fa fa-star"></label>
                 <input type="radio" name="rating1" id="rating5"  th:field="*{note}" th:value="5">
-                <label for="rating5" class="fa fa-star"></label>
+                <label for="rating5" class="fa fa-star">5</label>
             </div>
         </div>
-
+      <!--  systeme avec un range
+      <div class="star">
+            <input
+                    class="rating rating--nojs"
+                    max="5"
+                    step="1"
+                    type="range"
+                    value="5" />
+        </div>
+        -->
         <div class="form-group">
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave a comment here"  id="floatingTextarea"  th:field="*{commentaire}"></textarea>
