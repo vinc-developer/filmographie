@@ -31,13 +31,21 @@ public class UserController {
     @PostMapping("/connection")
     public String connection(RedirectAttributes redirect){
         redirect.addFlashAttribute("message", "connection réussi");
+        redirect.addFlashAttribute("user", userService.getById());
         return "redirect:/";
     }
 
     @PostMapping("/add-register")
     public String register(User user, Model model, RedirectAttributes redirect){
         userService.addUser(user);
-        model.addAttribute("user", userService.getById());
+        redirect.addFlashAttribute("user", userService.getById());
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(RedirectAttributes redirect){
+        // suprimer user
+        redirect.addFlashAttribute("user", new User());
         return "redirect:/";
     }
 }

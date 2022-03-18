@@ -19,6 +19,12 @@ header{
     margin: 35px 0 0 0;
     text-decoration: underline;
 }
+.suivez-nous{
+    display: block ruby;
+}
+.suivez-nous a{
+   margin: 0 10px;
+}
 
 .success{
     color: white;

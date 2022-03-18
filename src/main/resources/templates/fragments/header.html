@@ -14,16 +14,18 @@
 </head>
 <header>
     <div class="info-header">
-        <div>
+        <div class="suivez-nous">
+            <p>Suivez-nous : </p>
             <a href="#"><i class="bi bi-facebook"></i></a>
             <a href="#" class="insta"><i class="bi bi-instagram"></i></a>
         </div>
-        <p th:if="${user != null}">Welcome : <span class="success-co" th:text=" ${user.username}"></span> </p>
-        <p th:if="${user == null}">Vous n'êtes pas connecté !</p>
+        <p>Vous n'êtes pas connecté ! <a th:href="@{/user/login}">Login</a></p>
+      <!--<p th:if="${user.username != null}">Welcome : <span class="success-co" th:text=" ${user.username}"></span> <a th:href="@{/user/logout}">Logout</a></p>
+        <p th:if="${user.username == null}">Vous n'êtes pas connecté ! <a th:href="@{/user/login}">Login</a></p>-->
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">Filmography</a>
+            <a class="navbar-brand" th:href="@{/}">City Ciné</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +41,7 @@
                         <a class="nav-link" th:href="@{/film}">Film</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/register}">Film</a>
+                        <a class="nav-link" th:href="@{/user/register}">User</a>
                     </li>
 
                 </ul>

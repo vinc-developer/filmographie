@@ -29,6 +29,10 @@
     font-size: 55px;
     padding: 10px;
 }
+.header-co h1 a{
+    color: red;
+    text-decoration: none;
+}
 
 #login{
     position: absolute;

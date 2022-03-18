@@ -8,7 +8,7 @@
             <img th:src="@{/images/mosaique1.jpg}" >
         </div>
         <header class="header-co">
-            <h1>City Ciné</h1>
+            <h1><a th:href="@{/}">City Ciné</a></h1>
         </header>
         <section id="register">
             <h2>S'enregistrer</h2>
@@ -43,7 +43,7 @@
                 </div>
                 <button class="btn btn-danger">Enregistrer</button>
             </form>
-            <p>Déja inscrit ? <a th:href="@{/user/login}">Inscrivez vous.</a></p>
+            <p>Déja inscrit ? <a th:href="@{/user/login}">Connectez vous.</a></p>
         </section>
     </div>
 </div>

@@ -24,6 +24,19 @@ public class User {
     @NotEmpty
     private boolean admin;
 
+    public User() {
+    }
+
+    public User(int id, String nom, String prenom, String username, String email, String password, boolean admin) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.admin = admin;
+    }
+
     public int getId() {
         return id;
     }

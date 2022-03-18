@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service()
 public class UserService implements UserImpl {
 
-    User userBack;
+    User userBack = new User(1, "Colas", "Vincent", "vinc-dev", "vinc@dev.com", "Test-123!", true);
 
     @Override
     public User getById(){

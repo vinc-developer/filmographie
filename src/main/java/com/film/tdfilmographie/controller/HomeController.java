@@ -1,5 +1,6 @@
 package com.film.tdfilmographie.controller;
 
+import com.film.tdfilmographie.bo.User;
 import com.film.tdfilmographie.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
