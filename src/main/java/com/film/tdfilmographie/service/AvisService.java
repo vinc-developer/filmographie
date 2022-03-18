@@ -42,13 +42,6 @@ public class AvisService implements AvisImpl {
         avisList.add(A8);
     }
 
-    public List<Avis> getAll(int id) {
-        if(avisList.size() == 0){
-            return null;
-        }
-        return avisList;
-    }
-
     @Override
     public void addAvis(Avis avis) {
         this.avisList.add(avis);
