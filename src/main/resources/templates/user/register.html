@@ -16,22 +16,27 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nom" placeholder="nom" th:field="*{nom}">
                     <label for="nom">Nom</label>
+                    <span class="alert-danger" th:errors="*{nom}"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="prenom" placeholder="prenom" th:field="*{prenom}">
                     <label for="prenom">Prenom</label>
+                    <span class="alert-danger" th:errors="*{prenom}"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="username" placeholder="username" th:field="*{username}">
                     <label for="username">Username</label>
+                    <span class="alert-danger" th:errors="*{username}"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" th:field="*{email}">
                     <label for="floatingInput">Email address</label>
+                    <span class="alert-danger" th:errors="*{email}"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
                     <label for="password">Password</label>
+                    <span class="alert-danger" th:errors="*{password}"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
@@ -40,6 +45,7 @@
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" th:field="*{admin}">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Admin</label>
+                    <span class="alert-danger" th:errors="*{admin}"></span>
                 </div>
                 <button class="btn btn-danger">Enregistrer</button>
             </form>

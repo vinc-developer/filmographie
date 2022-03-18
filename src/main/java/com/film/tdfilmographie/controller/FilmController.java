@@ -50,7 +50,6 @@ public class FilmController {
 
     @GetMapping("/get-one/{id}")
     public String getById(@PathVariable String id, Model model){
-        // get by id service
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
         model.addAttribute("avgAvis", 3);
         return "/film/get-id-film.html";
@@ -58,9 +57,9 @@ public class FilmController {
 
     @PostMapping()
     public String insertNewFilm(@Valid Film film, BindingResult bindingResult, RedirectAttributes redirect){
-        /*if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) {
             return "redirect:/film";
-        }*/
+        }
 
         filmService.ajoutFilm(film);
         redirect.addFlashAttribute("message", "Le film a bien été ajouté !");

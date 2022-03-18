@@ -21,7 +21,6 @@ public class User {
     @NotEmpty
     private String password;
 
-    @NotEmpty
     private boolean admin;
 
     public User() {

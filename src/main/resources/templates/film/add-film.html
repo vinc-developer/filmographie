@@ -49,6 +49,7 @@
                             <div class="form-check" th:each="g : ${genres}">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" th:field="*{genre}" th:value="${g.id}">
                                 <label class="form-check-label" for="flexRadioDefault1" th:text="${g.libelle}"></label>
+                                <span class="alert-danger" th:errors="*{genre}"></span>
                             </div>
                         </div>
                     </div>
@@ -61,6 +62,7 @@
                                 <div>
                                     <input class="form-check-input " type="checkbox" id="flexCheckDefault" th:field="*{castActeur}" th:value="${c.id}">
                                     <label class="form-check-label" for="flexCheckDefault" th:text="|${c.prenom} ${c.nom}|"></label>
+                                    <span class="alert-danger" th:errors="*{genre}"></span>
                                 </div>
                             </div>
                         </div>
