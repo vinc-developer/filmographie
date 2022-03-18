@@ -11,4 +11,6 @@ public interface FilmImpl {
     public void ajoutFilm(Film film);
 
     public Film getById(int id);
+
+    public void deleteFilm(int id);
 }

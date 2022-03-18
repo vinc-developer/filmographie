@@ -9,4 +9,6 @@ public interface AvisImpl {
     public void addAvis(Avis avis);
 
     public List<Avis> getAllAvis(int id);
+
+    public void deleteAvis(int id);
 }

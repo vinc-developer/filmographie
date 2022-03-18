@@ -65,4 +65,9 @@ public class CastActeurService implements CastActeurImpl {
         return null;
     }
 
+    @Override
+    public void deleteCastACteur(int id) {
+
+    }
+
 }

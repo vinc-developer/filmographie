@@ -25,19 +25,19 @@ public class GenreController {
     public String getGenre(Model model) {
         List<Genre> genreList = genreService.getAllGenres();
         model.addAttribute("genres", genreList);
-        return "/film/get-genre.html";
+        return "/genre/get-genre.html";
     }
 
     @GetMapping("/formulaire-ajout-genre")
     public String redirectAddGenre(Model model){
         model.addAttribute("genre", new Genre());
-        return "/film/add-genre.html";
+        return "/genre/add-genre.html";
     }
 
     @PostMapping()
     public String insertFormulaireGenre(@Valid Genre genre, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
-            return "/film/add-genre.html";
+            return "/genre/add-genre.html";
         }
 
         genreService.ajoutGenre(genre);

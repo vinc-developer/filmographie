@@ -50,4 +50,9 @@ public class CastRealisateurService implements CastRealisateurImpl {
         }
         return null;
     }
+
+    @Override
+    public void deleteCastRealisateur(int id) {
+
+    }
 }

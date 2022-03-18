@@ -30,25 +30,25 @@ public class CastController {
     public String getCast(Model model){
         model.addAttribute("casts", castService.getAllCast());
         model.addAttribute("castsRealisateur", castRealisateurService.getAllCast());
-        return "/film/get-cast.html";
+        return "/cast/get-cast.html";
     }
 
     @GetMapping("/formulaire-ajout-acteur")
     public String redirectAdd(Model model){
         model.addAttribute("cast", new CastActeur());
-        return "/film/add-cast.html";
+        return "/cast/add-cast.html";
     }
 
     @GetMapping("/formulaire-ajout-realisateur")
     public String redirectAddRealisateur(Model model){
         model.addAttribute("cast", new CastRealisateur());
-        return "/film/add-cast-realisateur.html";
+        return "/cast/add-cast-realisateur.html";
     }
 
     @PostMapping("/add-acteur")
     public String addCast(@Valid CastActeur cast, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
-            return "/film/add-cast.html";
+            return "/cast/add-cast.html";
         }
 
         castService.ajoutCast(cast);
@@ -61,7 +61,7 @@ public class CastController {
     @PostMapping("/add-realisateur")
     public String addCastRealisateur(@Valid CastRealisateur castRealisateur, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
-            return "/film/add-cast-realisateur.html";
+            return "/cast/add-cast-realisateur.html";
         }
 
         castRealisateurService.ajoutCast(castRealisateur);

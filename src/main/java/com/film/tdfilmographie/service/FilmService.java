@@ -102,4 +102,9 @@ public class FilmService implements FilmImpl {
         }
         return null;
     }
+
+    @Override
+    public void deleteFilm(int id) {
+
+    }
 }

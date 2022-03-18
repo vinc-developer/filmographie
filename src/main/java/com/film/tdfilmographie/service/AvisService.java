@@ -57,4 +57,9 @@ public class AvisService implements AvisImpl {
         }
         return avisBack;
     }
+
+    @Override
+    public void deleteAvis(int id) {
+
+    }
 }

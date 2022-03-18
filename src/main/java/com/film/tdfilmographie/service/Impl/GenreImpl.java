@@ -11,4 +11,6 @@ public interface GenreImpl {
     public List<Genre> getAllGenres();
 
     public Genre getGenre(int id);
+
+    public void deleteGenre(int id);
 }

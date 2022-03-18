@@ -46,4 +46,9 @@ public class GenreService implements GenreImpl {
         }
         return null;
     }
+
+    @Override
+    public void deleteGenre(int id) {
+
+    }
 }
