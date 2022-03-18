@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface AvisImpl {
 
-    public List<Avis> getAll(int id);
-
     public void addAvis(Avis avis);
 
-    public Avis getAllAvis(int id);
+    public List<Avis> getAllAvis(int id);
 }

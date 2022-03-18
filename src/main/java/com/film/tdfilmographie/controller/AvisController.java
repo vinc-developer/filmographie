@@ -28,7 +28,7 @@ public class AvisController {
 
     @GetMapping("/get-all/{id}")
     public String getAvisList(@PathVariable String id, Model model){
-        model.addAttribute("allAvis", avisService.getAll(Integer.parseInt(id)));
+        model.addAttribute("allAvis", avisService.getAllAvis(Integer.parseInt(id)));
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
         return "/avis/get-avis.html";
     }
@@ -47,6 +47,7 @@ public class AvisController {
         }
 
         avis.setDateAjout(LocalDate.now());
+        avis.setIdFilm(Integer.parseInt(id));
 
         avisService.addAvis(avis);
         redirect.addFlashAttribute("message", "Ajout réussi");
