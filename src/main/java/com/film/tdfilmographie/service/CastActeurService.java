@@ -66,8 +66,8 @@ public class CastActeurService implements CastActeurImpl {
     }
 
     @Override
-    public void deleteCastACteur(int id) {
-
+    public void deleteCastActeur(int id) {
+        castList.removeIf(cast -> cast.getId() == id);
     }
 
 }

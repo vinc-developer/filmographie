@@ -60,7 +60,7 @@
                 <p class="card-text" th:text="${avis.commentaire}"></p>
                 <p th:text="|Posté le ${avis.dateAjout}|"></p>
                 <div class="btn-avis-delete">
-                    <button type="button" class="btn btn-danger btn-avis-delete">Delete</button>
+                    <a th:href="@{'/avis/delete-avis/' + ${avis.id} + '/' + ${film.id}}" type="button" class="btn btn-danger btn-avis-delete">Delete</a>
                 </div>
             </div>
         </div>

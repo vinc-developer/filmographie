@@ -49,6 +49,6 @@ public class GenreService implements GenreImpl {
 
     @Override
     public void deleteGenre(int id) {
-
+        genres.removeIf(genre -> genre.getId() == id);
     }
 }

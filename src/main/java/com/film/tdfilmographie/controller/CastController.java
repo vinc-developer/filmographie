@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -69,5 +70,21 @@ public class CastController {
         redirect.addFlashAttribute("message", "Ajout réussi");
 
         return "redirect:/cast";
+    }
+
+    @GetMapping("delete-cast-acteur/{id}")
+        public String deleteCastActeur(@PathVariable String id, RedirectAttributes redirect){
+             castService.deleteCastActeur(Integer.parseInt(id));
+            redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
+            return "redirect:/cast";
+
+        }
+
+    @GetMapping("delete-cast-realisateur/{id}")
+    public String deleteCastRealisateur(@PathVariable String id, RedirectAttributes redirect){
+        castRealisateurService.deleteCastRealisateur(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
+        return "redirect:/cast";
+
     }
 }

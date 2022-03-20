@@ -53,6 +53,6 @@ public class CastRealisateurService implements CastRealisateurImpl {
 
     @Override
     public void deleteCastRealisateur(int id) {
-
+        castListR.removeIf(cast -> cast.getId() == id);
     }
 }

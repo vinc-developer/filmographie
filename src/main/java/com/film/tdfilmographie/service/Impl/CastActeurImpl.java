@@ -12,5 +12,5 @@ public interface CastActeurImpl {
 
     public CastActeur getCast(int id);
 
-    public void deleteCastACteur(int id);
+    public void deleteCastActeur(int id);
 }

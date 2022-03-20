@@ -54,4 +54,11 @@ public class AvisController {
         return "redirect:/avis/get-all/" + id;
 
     }
+
+    @GetMapping("/delete-avis/{id}/{idFilm}")
+    public String deleteAvis(@PathVariable String id, @PathVariable String idFilm, RedirectAttributes redirect){
+        avisService.deleteAvis(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "L'avis a bien été supprimé !");
+        return "redirect:/avis/get-all/" + idFilm;
+    }
 }

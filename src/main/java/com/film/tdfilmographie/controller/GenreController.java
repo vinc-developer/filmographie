@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -44,6 +45,13 @@ public class GenreController {
 
         redirect.addFlashAttribute("message", "Ajout réussi");
 
+        return "redirect:/genre";
+    }
+
+    @GetMapping("delete-genre/{id}")
+    public String deleteGenre(@PathVariable String id, RedirectAttributes redirect){
+        genreService.deleteGenre(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "Le genre a bien été supprimé !");
         return "redirect:/genre";
     }
 }

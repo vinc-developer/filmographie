@@ -60,6 +60,6 @@ public class AvisService implements AvisImpl {
 
     @Override
     public void deleteAvis(int id) {
-
+        avisList.removeIf(a -> a.getId() == id);
     }
 }

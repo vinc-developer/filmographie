@@ -18,7 +18,7 @@
                     <span th:text="${genre.libelle}"></span>
                     <div class="group-button-genre">
                         <a type="button" class="btn btn-warning">Modifier</a>
-                        <a type="button" class="btn btn-danger">Supprimer</a>
+                        <a th:href="@{'/genre/delete-genre/' + ${genre.id}}" type="button" class="btn btn-danger">Supprimer</a>
                     </div>
                 </li>
             </ul>
