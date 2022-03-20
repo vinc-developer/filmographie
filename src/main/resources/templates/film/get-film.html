@@ -18,7 +18,7 @@
             <span  th:text="${film.genre.libelle}"></span>
             <div class="group-button">
                 <a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a>
-                <a type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
+                <a th:href="@{'/film/delete-film/' + ${film.id}}" type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
             </div>
         </div>
         <img th:src="${film.urlImage}" class="card-img-top" alt="...">

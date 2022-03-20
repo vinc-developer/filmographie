@@ -66,4 +66,11 @@ public class FilmController {
 
         return "redirect:/film";
     }
+
+    @GetMapping("/delete-film/{id}")
+    public String deleteFilm(@PathVariable String id, RedirectAttributes redirect){
+        filmService.deleteFilm(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "Le film a bien été supprimé !");
+        return "redirect:/film";
+    }
 }

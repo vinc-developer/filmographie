@@ -105,6 +105,6 @@ public class FilmService implements FilmImpl {
 
     @Override
     public void deleteFilm(int id) {
-
+        filmList.removeIf(film -> film.getId() == id);
     }
 }
