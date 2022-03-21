@@ -1,0 +1,161 @@
+<!-- 
+/**
+ * @author Jean-yves Chaillou <jeanyves.chaillou@gmail.com>
+ * @copyright Copyright (c) 2022>
+ * @link https://kwabounga.fr
+ */
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>End Points</title>
+<link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+<style>
+.get {
+  color: green;
+}
+
+.post {
+  color: blue;
+}
+
+.delete {
+  color: red;
+}
+
+.patch {
+  color: lightsalmon;
+}
+
+.put {
+  color: orange;
+}
+
+.endpoints {
+  padding: 1em;
+}
+
+#filter {
+  margin-bottom: 1em;
+}
+</style>
+</head>
+<body>
+  <div class="container-fluid endpoints">
+    <form th:action="@{/mapping/}" id="filter" method="GET">
+      <div class="input-group input-group-sm">
+        <input th:if="${package}" class="form-control form-control-sm" type="text" placeholder="filter" id="filter-input" minlength="3"
+          th:value="${package}" autofocus> <input th:unless="${package}" class="form-control form-control-sm" type="text"
+          placeholder="filter" id="filter-input" autofocus>
+
+        <div class="input-group-append">
+          <a class="btn btn-success text-light" type="button" onclick="submit()">filter</a>
+        </div>
+      </div>
+      <div id="error"></div>
+    </form>
+    <div th:if="${package}">
+      <strong>Filter:</strong> <span th:text="${package}"></span>
+      <div><a th:href="${#httpServletRequest.requestURI}"
+        th:text="${#httpServletRequest.requestURL}">server
+        url<span class="font-weight-bold">something</span>
+      </a></div>
+    </div>
+    <div th:unless="${package}">
+      <strong>#NoFilter:</strong> 
+      <div>
+      taper <a th:href="@{${'/mapping/something'}}"
+        th:text="${#httpServletRequest.scheme}+'://'+${#httpServletRequest.serverName}+':'+${#httpServletRequest.serverPort}+@{'/mapping/something'}">server
+        url<span class="font-weight-bold">something</span>
+      </a>
+      </div>
+    </div>
+    <table class="table table-striped " data-toggle="table" data-search="true" data-pagination="true" data-page-size="10">
+      <thead>
+        <tr>
+          <th data-sortable="true">#</th>
+          <th data-sortable="true">Method</th>
+          <th data-sortable="true">Route</th>
+          <th data-sortable="true">Class</th>
+          <th data-sortable="true">Action</th>
+        </tr>
+      </thead>
+      <tbody th:if="${package}">
+        <tr th:each="entry, iter : ${handlerMethods}" th:if="${#strings.contains(entry.value, package)}"
+          th:class="${#strings.toLowerCase(entry.key.methodsCondition.methods[0])}">
+          <th scope="row" th:text="${iter.index}">id</th>
+          <th scope="row" th:text="${#strings.toLowerCase(entry.key.methodsCondition.methods[0])}">method</th>
+          <td th:if="${entry.key}"><span th:unless="${entry.key.pathPatternsCondition}" th:text="${entry.key}">route</span> <span
+            th:if="${entry.key.pathPatternsCondition}"> <a
+              th:if="${#strings.toLowerCase(entry.key.methodsCondition.methods[0]) == 'get'}"
+              th:href="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}"> <span
+                th:text="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}">route</span>
+            </a> <span th:unless="${#strings.toLowerCase(entry.key.methodsCondition.methods[0]) == 'get'}"
+              th:text="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}">route</span>
+          </span></td>
+          <td th:text="|${entry.value}">class path</td>
+          <td th:text="|${entry.value.method.name}">method</td>
+        </tr>
+      </tbody>
+      <tbody th:unless="${package}">
+        <tr th:each="entry, iter : ${handlerMethods}"
+          th:class="${(entry.key.methodsCondition.methods.size() >= 1) ? #strings.toLowerCase(entry.key.methodsCondition.methods[0]) : ''}">
+          <th scope="row" th:text="${iter.index}">id</th>
+          <th scope="row"
+            th:text="${(entry.key.methodsCondition.methods.size() >= 1) ? #strings.toLowerCase(entry.key.methodsCondition.methods[0]) : ''}">method</th>
+          <td th:if="${entry.key}"><span th:unless="${entry.key.pathPatternsCondition}" th:text="${entry.key}">route</span> <span
+            th:if="${entry.key.pathPatternsCondition}"> <a
+              th:if="${entry.key.methodsCondition.methods.size() >= 1 && #strings.toLowerCase(entry.key.methodsCondition.methods[0]) == 'get'}"
+              th:href="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}"> <span
+                th:text="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}">route</span>
+            </a> <span
+              th:unless="${entry.key.methodsCondition.methods.size() >= 1 && #strings.toLowerCase(entry.key.methodsCondition.methods[0]) == 'get'}"
+              th:text="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}">route</span>
+          </span></td>
+          <td th:text="|${entry.value}">class path</td>
+          <td th:text="|${entry.value.method.name}">method</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+
+
+  </div>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS, then Table Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-fr-FR.min.js"></script>
+  <script>
+		function submit() {
+			if(document.querySelector('#filter-input').value.trim() != '' && document.querySelector('#filter-input').value.length < 3){
+				document.querySelector('#filter-input').select()
+				document.getElementById('error').innerHTML = `<span class="alert  alert-dismissible shadow fade show alert-danger" role="alert">
+			          <strong> /!\\ </strong> <span >3 caractères minimum</span>
+			          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			            <span aria-hidden="true">&times;</span>
+			          </button>
+			        </span>`;
+				return
+			}else{
+				document.getElementById('error').textContent = '';
+			}
+    		document.querySelector('#filter').action = `${location.origin}/mapping/${document.querySelector('#filter-input').value}`; 
+			console.log(document.querySelector('#filter').action);
+			window.location.href = document.querySelector('#filter').action;
+		}
+		document.querySelector('#filter').addEventListener("submit", (e)=>{
+			console.log(e)
+			e.preventDefault();
+			submit();
+		})
+		</script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 <section id="list-card">
     <h2>List des Films</h2>
     <div class="btn-add-card">
-        <a type="button" class="btn btn-success" th:href="@{/film/formulaire-ajout-film}" >Add Film</a>
+        <a type="button" class="btn btn-success" th:href="@{/admin/film/formulaire-ajout-film}" >Add Film</a>
     </div>
 </section>
 
@@ -18,7 +18,7 @@
             <span  th:text="${film.genre.libelle}"></span>
             <div class="group-button">
                 <a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a>
-                <a th:href="@{'/film/delete-film/' + ${film.id}}" type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
+                <a th:href="@{'/admin/film/delete-film/' + ${film.id}}" type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
             </div>
         </div>
         <img th:src="${film.urlImage}" class="card-img-top" alt="...">
@@ -28,7 +28,7 @@
                 <h6 class="card-subtitle mb-2 text-muted" th:text="|${film.duree} min|"></h6>
             </div>
             <h6 class="card-subtitle mb-2 text-muted" th:text="${#temporals.format(film.dateSortie, 'dd-MMMM-yyyy')}"></h6>
-            <h6><a th:href="@{'/avis/get-all/' + ${film.id}}">Avis</a></h6>
+            <h6><a th:href="@{'/private/avis/get-all/' + ${film.id}}">Avis</a></h6>
             <p class="card-text" th:text="${film.synopsis}"></p>
             <ul>
                 <h5>Acteurs :</h5>

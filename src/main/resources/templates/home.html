@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr"  xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments/header :: head(title='Home Page')"></head>
 <body>
-    <!--<header th:replace="fragments/header :: header(user=${user})"></header>-->
     <header th:replace="fragments/header :: header"></header>
     <div id="body-home">
         <section id="home">
-            <h1>Welcome to Filmothèque World</h1>
+            <h1>Welcome to City Movie </h1>
             <h2>Retrouvez vos film préférés sur notre site !!!</h2>
         </section>
 
@@ -14,7 +14,7 @@
         <section id="list-film-home">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <a th:href="@{'/film/get-one/' + ${film.id}}">
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">
                 </a>
             </div>
@@ -24,7 +24,7 @@
         <section id="list-film-home-action">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 4}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <a th:href="@{'/film/get-one/' + ${film.id}}">
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">
                 </a>
 
@@ -35,7 +35,7 @@
         <section id="list-film-home-science">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 2}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <a th:href="@{'/film/get-one/' + ${film.id}}">
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">
                 </a>
             </div>
@@ -45,7 +45,7 @@
         <section id="list-film-home-science">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 3}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <a th:href="@{'/film/get-one/' + ${film.id}}">
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">
                 </a>
             </div>

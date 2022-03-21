@@ -9,7 +9,7 @@
     <section id="list-card">
         <h2>Listes des Genres de film</h2>
         <div class="btn-add-card">
-            <a type="button" class="btn btn-success" th:href="@{/genre/formulaire-ajout-genre}" >Add Genre</a>
+            <a type="button" class="btn btn-success" th:href="@{/admin/genre/formulaire-ajout-genre}" >Add Genre</a>
         </div>
 
         <div class="section-card-genre" th:if="genres != null">
@@ -18,7 +18,7 @@
                     <span th:text="${genre.libelle}"></span>
                     <div class="group-button-genre">
                         <a type="button" class="btn btn-warning">Modifier</a>
-                        <a th:href="@{'/genre/delete-genre/' + ${genre.id}}" type="button" class="btn btn-danger">Supprimer</a>
+                        <a th:href="@{'/admin/genre/delete-genre/' + ${genre.id}}" type="button" class="btn btn-danger">Supprimer</a>
                     </div>
                 </li>
             </ul>

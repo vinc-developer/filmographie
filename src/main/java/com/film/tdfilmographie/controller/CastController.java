@@ -8,17 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
-@RequestMapping("/cast")
+@RequestMapping("/admin/cast")
 public class CastController {
 
     @Autowired
@@ -51,40 +47,33 @@ public class CastController {
         if(binding.hasErrors()){
             return "/cast/add-cast.html";
         }
-
         castService.ajoutCast(cast);
-
         redirect.addFlashAttribute("message", "Ajout réussi");
-
-        return "redirect:/cast";
+        return "redirect:/admin/cast";
     }
 
-    @PostMapping("/add-realisateur")
+    @GetMapping("/add-realisateur")
     public String addCastRealisateur(@Valid CastRealisateur castRealisateur, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
             return "/cast/add-cast-realisateur.html";
         }
-
         castRealisateurService.ajoutCast(castRealisateur);
-
         redirect.addFlashAttribute("message", "Ajout réussi");
-
-        return "redirect:/cast";
+        return "redirect:/admin/cast";
     }
 
-    @GetMapping("delete-cast-acteur/{id}")
-        public String deleteCastActeur(@PathVariable String id, RedirectAttributes redirect){
-             castService.deleteCastActeur(Integer.parseInt(id));
-            redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
-            return "redirect:/cast";
+    @GetMapping("/delete-cast-acteur/{id}")
+    public String deleteCastActeur(@PathVariable String id, RedirectAttributes redirect){
+        System.out.println(id);
+        castService.deleteCastActeur(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
+        return "redirect:/admin/cast";
+    }
 
-        }
-
-    @GetMapping("delete-cast-realisateur/{id}")
+    @GetMapping("/delete-cast-realisateur/{id}")
     public String deleteCastRealisateur(@PathVariable String id, RedirectAttributes redirect){
         castRealisateurService.deleteCastRealisateur(Integer.parseInt(id));
         redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
-        return "redirect:/cast";
-
+        return "redirect:/admin/cast";
     }
 }

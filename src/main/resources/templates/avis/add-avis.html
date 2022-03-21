@@ -6,7 +6,7 @@
 
 <section id="add-film">
     <h2>Ajout d'un nouvelle avis</h2>
-    <form class="form-avis" th:object="${avis}" method="post" th:action="@{'/avis/insert/' + ${id} }">
+    <form class="form-avis" th:object="${avis}" method="post" th:action="@{'/private/avis/insert/' + ${id} }">
         <div class="rating-css">
             <div class="star-icon">
                 <input type="radio" class="label-checked" name="rating1" id="rating0" th:field="*{note}" th:value="0">

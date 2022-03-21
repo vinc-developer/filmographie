@@ -9,7 +9,7 @@
     <section id="list-avis">
         <h2>List des avis du film <span th:text="${film.titre}"></span></h2>
         <div class="btn-add-card">
-            <a type="button" class="btn btn-success" th:href="@{'/avis/add-avis/' + ${film.id}}" >Ajouter un Avis</a>
+            <a type="button" class="btn btn-success" th:href="@{'/private/avis/add-avis/' + ${film.id}}" >Ajouter un Avis</a>
         </div>
     </section>
 
@@ -60,7 +60,7 @@
                 <p class="card-text" th:text="${avis.commentaire}"></p>
                 <p th:text="|Posté le ${avis.dateAjout}|"></p>
                 <div class="btn-avis-delete">
-                    <a th:href="@{'/avis/delete-avis/' + ${avis.id} + '/' + ${film.id}}" type="button" class="btn btn-danger btn-avis-delete">Delete</a>
+                    <a th:href="@{'/private/avis/delete-avis/' + ${avis.id} + '/' + ${film.id}}" type="button" class="btn btn-danger btn-avis-delete">Delete</a>
                 </div>
             </div>
         </div>

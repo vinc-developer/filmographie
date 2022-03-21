@@ -22,7 +22,7 @@
                         <li th:each="cast : ${film.castActeur}" th:text="|${cast.prenom} ${cast.nom} |"></li>
                     </ul>
                 </div>
-                <div class="rating-css-film">Moyenne <a th:href="@{'/avis/get-all/' + ${film.id}}">avis</a> :
+                <div class="rating-css-film">Moyenne <a th:href="@{'/private/avis/get-all/' + ${film.id}}">avis</a> :
                     <div class="star-icon" th:if="${avgAvis == 1}">
                         <label class="fa fa-star"></label>
                         <label class="fa fa-star star-none"></label>

@@ -9,10 +9,10 @@
     <section id="list-card">
         <h2>List des Cast</h2>
         <div class="btn-add-card">
-            <a type="button" class="btn btn-success" th:href="@{/cast/formulaire-ajout-acteur}" >Add Cast Acteur</a>
+            <a type="button" class="btn btn-success" th:href="@{/admin/cast/formulaire-ajout-acteur}" >Add Cast Acteur</a>
         </div>
         <div class="btn-add-card">
-            <a type="button" class="btn btn-success" th:href="@{/cast/formulaire-ajout-realisateur}" >Add Cast Realisateur</a>
+            <a type="button" class="btn btn-success" th:href="@{/admin/cast/formulaire-ajout-realisateur}" >Add Cast Realisateur</a>
         </div>
         <h3>Liste des Acteurs :</h3>
         <div class="section-card">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="group-button">
                     <a type="button" class="btn btn-warning">Modifier</a>
-                    <a th:href="@{'/cast/delete-cast-acteur/' + ${cast.id}}" type="button" class="btn btn-danger">Supprimer</a>
+                    <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-acteur/' + ${cast.id}}">Supprimer</a>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="group-button">
                     <a type="button" class="btn btn-warning">Modifier</a>
-                    <a th:href="@{'/cast/delete-cast-realisateur/' + ${cast.id}}" type="button" class="btn btn-danger">Supprimer</a>
+                    <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-realisateur/' + ${cast.id}}">Supprimer</a>
                 </div>
             </div>
         </div>

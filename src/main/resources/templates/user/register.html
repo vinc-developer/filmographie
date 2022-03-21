@@ -8,11 +8,11 @@
             <img th:src="@{/images/mosaique1.jpg}" >
         </div>
         <header class="header-co">
-            <h1><a th:href="@{/}">City Ciné</a></h1>
+            <h1><a th:href="@{/}">City Movie</a></h1>
         </header>
         <section id="register">
             <h2>S'enregistrer</h2>
-            <form th:object="${user}" method="post" th:action="@{/user/add-register}">
+            <form th:object="${user}" method="post" th:action="@{/admin/user/add-register}">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nom" placeholder="nom" th:field="*{nom}">
                     <label for="nom">Nom</label>

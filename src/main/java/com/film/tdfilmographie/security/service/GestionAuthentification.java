@@ -1,18 +1,23 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
 import com.film.tdfilmographie.bo.User;
-import com.film.tdfilmographie.service.Impl.UserImpl;
+import com.film.tdfilmographie.security.Utilisateur;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service()
-public class UserService implements UserImpl {
+@Service
+public class GestionAuthentification implements UserDetailsService {
 
     private List<User> users = new ArrayList<>();
-    public UserService(PasswordEncoder passwordEncoder){
+    private PasswordEncoder passwordEncoder;
+
+    public GestionAuthentification(PasswordEncoder passwordEncoder){
         User U1 = new User(1,"alex","terrieur", "alexterrieur", "alex@terrieur.com", passwordEncoder.encode("user1"), false);
         User U2 = new User(2,"alain", "terrieur", "alainterrieur", "alain@terrieur.com", passwordEncoder.encode("user2"), false);
         User U3 = new User(3, "marc", "assin", "marcassin", "marc@assin.com", passwordEncoder.encode("admin1"), true);
@@ -26,29 +31,12 @@ public class UserService implements UserImpl {
     }
 
     @Override
-    public User getById(int id){
-        for(User user : users){
-            if(user.getId() == id){
-                return user;
-            }
-        }
-        return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+       for(User user : users){
+           if(user.getEmail().equals(username)){
+               return new Utilisateur(user);
+           }
+       }
+       throw new UsernameNotFoundException(username);
     }
-
-    @Override
-    public List<User> getAllUser(){
-        return users;
-    }
-
-    @Override
-    public void addUser(User user){
-        users.add(user);
-    }
-
-    @Override
-    public void deleteUser(int id){
-        users.removeIf(user -> user.getId() == id);
-    }
-
-
 }
