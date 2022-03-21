@@ -4,8 +4,16 @@
 <body>
     <header th:replace="fragments/header :: header"></header>
 
-    <section>
-        <h2 th:text="|Profil de ${user.prenom} ${user.nom} |"></h2>
+    <section id="user-profil">
+        <h2 th:text="|Profil de ${user.nom} ${user.prenom} |"></h2>
+
+        <div>
+            <p>Nom : <span class="space" th:text="${user.nom}"></span></p>
+            <p>Prenom : <span class="space" th:text="${user.prenom}"></span></p>
+            <p>Username : <span class="space" th:text="${user.username}"></span></p>
+            <p>Email : <span class="space" th:text="${user.email}"></span></p>
+            <p>Admin : <span class="space" th:text="${user.admin}"></span></p>
+        </div>
     </section>
 </body>
 </html>

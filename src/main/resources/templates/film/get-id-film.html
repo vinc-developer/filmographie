@@ -23,6 +23,13 @@
                     </ul>
                 </div>
                 <div class="rating-css-film">Moyenne <a th:href="@{'/private/avis/get-all/' + ${film.id}}">avis</a> :
+                    <div class="star-icon" th:if="${avgAvis == 0}">
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                        <label class="fa fa-star star-none"></label>
+                    </div>
                     <div class="star-icon" th:if="${avgAvis == 1}">
                         <label class="fa fa-star"></label>
                         <label class="fa fa-star star-none"></label>

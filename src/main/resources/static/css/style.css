@@ -19,6 +19,9 @@ header{
     margin: 35px 0 0 0;
     text-decoration: underline;
 }
+.space{
+    margin-left: 10px;
+}
 .suivez-nous{
     display: block ruby;
 }
@@ -184,6 +187,19 @@ header{
     text-align: center;
     font-size: 35px;
     margin: 25px 0 45px 0;
+}
+#list-card .h3-realisateur{
+    margin: 105px 0 45px 0;
+}
+#list-card .table{
+    margin-top: 50px;
+    color: antiquewhite !important;
+}
+#list-card thead{
+    font-size: 25px;
+}
+#list-card tbody{
+    font-size: 20px;
 }
 #list-film-home-action{
     display: flex;

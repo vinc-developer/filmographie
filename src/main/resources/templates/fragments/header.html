@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/endpoint.css}" />
     <link rel="stylesheet" th:href="@{/css/nav.css}" />
     <link rel="stylesheet" th:href="@{/css/form.css}" />
     <link rel="stylesheet" th:href="@{/css/avis.css}" />
@@ -21,29 +22,29 @@
         <div>
             <div class="suivez-nous">
                 <p>Suivez-nous : </p>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-                <i class="bi bi-github"></i>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="insta"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/colas-vincent/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/vinctigra?tab=repositories" target="_blank" class="github"> <i class="bi bi-github"></i></a>
+                <a href="https://www.facebook.com/cavimait" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/vinc.developpeur/" class="insta" target="_blank"><i class="bi bi-instagram"></i></a>
             </div>
         </div>
         <div class="nav-item dropdown" sec:authorize="isAuthenticated()">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-person-circle"></i><span th:text="|${#authentication.principal.user.prenom} ${#authentication.principal.user.nom}|"></span>
+                <i class="bi bi-person-circle"></i><span class="space" th:text="|${#authentication.principal.user.prenom} ${#authentication.principal.user.nom}|"></span>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" th:href="@{'/private/user/get-id/' + ${#authentication.principal.user.id} }">Profil</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><form th:action="@{/logout}" method="post"><button>Logout <i class="bi bi-box-arrow-in-left"></i></button></form></li>
+                <li><form th:action="@{/logout}" method="post"><button class="btn-logout">Logout <i class="bi bi-box-arrow-in-left"></i></button></form></li>
             </ul>
         </div>
 
       <!--<div sec:authorize="isAuthenticated()"><p class="success-co" th:text="|Welcome : ${#authentication.name}|"><form th:action="@{/logout}" method="post"><button>Logout <i class="bi bi-box-arrow-in-left"></i></button></form></div>-->
-      <div sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><i class="bi bi-box-arrow-in-right"></i> Login</a></div>
+      <div sec:authorize="!isAuthenticated()" class="nav-login"><a th:href="@{/login}"><i class="bi bi-box-arrow-in-right"></i><span class="space">Login</span></a></div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" th:href="@{/}">City Movie</a>
+            <h1><a class="navbar-brand" th:href="@{/}">City Movie</a></h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -17,11 +17,13 @@ public class GenreService implements GenreImpl {
         Genre G2 = new Genre(2,"Science-fiction");
         Genre G3 = new Genre(3,"Comedie");
         Genre G4 = new Genre(4,"Action");
+        Genre G5 = new Genre(5, "Jeunesse");
 
         genres.add(G1);
         genres.add(G2);
         genres.add(G3);
         genres.add(G4);
+        genres.add(G5);
     }
 
     @Override

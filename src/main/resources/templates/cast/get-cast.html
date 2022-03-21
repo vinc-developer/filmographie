@@ -8,37 +8,60 @@
 
     <section id="list-card">
         <h2>List des Cast</h2>
+
+        <h3>Liste des Acteurs :</h3>
+
         <div class="btn-add-card">
             <a type="button" class="btn btn-success" th:href="@{/admin/cast/formulaire-ajout-acteur}" >Add Cast Acteur</a>
         </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cast : ${casts}" >
+                <th scope="row" th:text="${cast.id}"></th>
+                <td th:text="${cast.nom}"></td>
+                <td th:text="${cast.prenom}"></td>
+                <td><a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
+                <td> <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-acteur/' + ${cast.id}}"><i class="bi bi-x-square"></i></a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 class="h3-realisateur">Liste des Réalisateurs :</h3>
+
         <div class="btn-add-card">
             <a type="button" class="btn btn-success" th:href="@{/admin/cast/formulaire-ajout-realisateur}" >Add Cast Realisateur</a>
         </div>
-        <h3>Liste des Acteurs :</h3>
-        <div class="section-card">
-            <div th:each="cast : ${casts}" class="card card-cast">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="| ${cast.nom} ${cast.prenom}|"></h5>
-                </div>
-                <div class="group-button">
-                    <a type="button" class="btn btn-warning">Modifier</a>
-                    <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-acteur/' + ${cast.id}}">Supprimer</a>
-                </div>
-            </div>
-        </div>
 
-        <h3>Liste des Réalisateurs :</h3>
-        <div class="section-card">
-            <div th:each="cast : ${castsRealisateur}" class="card card-cast">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="| ${cast.nom} ${cast.prenom}|"></h5>
-                </div>
-                <div class="group-button">
-                    <a type="button" class="btn btn-warning">Modifier</a>
-                    <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-realisateur/' + ${cast.id}}">Supprimer</a>
-                </div>
-            </div>
-        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cast : ${castsRealisateur}" >
+                <th scope="row" th:text="${cast.id}"></th>
+                <td th:text="${cast.nom}"></td>
+                <td th:text="${cast.prenom}"></td>
+                <td><a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
+                <td> <a type="button" class="btn btn-danger" th:href="@{'/admin/cast/delete-cast-realisateur/' + ${cast.id}}"><i class="bi bi-x-square"></i></a></td>
+            </tr>
+            </tbody>
+        </table>
 
     </section>
 </body>

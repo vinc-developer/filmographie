@@ -1,0 +1,50 @@
+.titre-table{
+    color: antiquewhite;
+}
+.table{
+    color: antiquewhite;
+}
+tr.get td, tr.get td a{
+    color: green !important;
+}
+tr.post td{
+    color: blue !important;
+}
+tr.error-tabs td{
+    color: red !important;
+}
+tr.put td{
+    color: orange !important;
+}
+tr.patch td{
+    color: yellow;
+}
+tr.delete td{
+    color: darkmagenta;
+}
+.endpoints {
+    padding: 1em;
+}
+#filter {
+    margin-bottom: 1em;
+}
+div.fixed-table-toolbar {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+}
+div.fixed-table-loading.table.table-bordered.table-hover{
+    display: none !important;
+}
+div.fixed-table-pagination{
+    display: flex;
+    justify-content: end;
+}
+div.fixed-table-pagination div.float-left{
+    margin-right: 25px;
+}
+.h2-endpoint{
+    margin: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+}

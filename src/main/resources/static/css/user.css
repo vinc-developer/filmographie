@@ -92,3 +92,35 @@
 #register p{
     margin-top: 25px;
 }
+
+/* Porfil utilisateur */
+#user-profil{
+    text-align: center;
+}
+
+#user-profil h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
+#user-profil p span{
+    font-weight: bold;
+}
+#user-profil div{
+    font-size: 20px;
+}
+#all-user .table{
+    margin-top: 50px;
+    color: antiquewhite !important;
+}
+#all-user h2{
+    text-align: center;
+    font-size: 55px;
+    margin: 25px 0 45px 0;
+}
+#all-user thead{
+    font-size: 25px;
+}
+#all-user tbody{
+    font-size: 20px;
+}

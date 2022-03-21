@@ -7,43 +7,12 @@
  -->
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>End Points</title>
-<link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
-<style>
-.get {
-  color: green;
-}
-
-.post {
-  color: blue;
-}
-
-.delete {
-  color: red;
-}
-
-.patch {
-  color: lightsalmon;
-}
-
-.put {
-  color: orange;
-}
-
-.endpoints {
-  padding: 1em;
-}
-
-#filter {
-  margin-bottom: 1em;
-}
-</style>
-</head>
+<head th:replace="fragments/header :: head(title='Home Page')"></head>
 <body>
+<header th:replace="fragments/header :: header"></header>
   <div class="container-fluid endpoints">
+    <h2 class="h2-endpoint">Endpoint Doc Mapping</h2>
+    <!--
     <form th:action="@{/mapping/}" id="filter" method="GET">
       <div class="input-group input-group-sm">
         <input th:if="${package}" class="form-control form-control-sm" type="text" placeholder="filter" id="filter-input" minlength="3"
@@ -71,9 +40,10 @@
         url<span class="font-weight-bold">something</span>
       </a>
       </div>
-    </div>
+    </div>-->
+
     <table class="table table-striped " data-toggle="table" data-search="true" data-pagination="true" data-page-size="10">
-      <thead>
+      <thead class="titre-table">
         <tr>
           <th data-sortable="true">#</th>
           <th data-sortable="true">Method</th>
@@ -95,13 +65,13 @@
             </a> <span th:unless="${#strings.toLowerCase(entry.key.methodsCondition.methods[0]) == 'get'}"
               th:text="${#strings.replace(#strings.replace(entry.key.pathPatternsCondition.patterns,'[',''),']','')}">route</span>
           </span></td>
-          <td th:text="|${entry.value}">class path</td>
-          <td th:text="|${entry.value.method.name}">method</td>
+          <td th:text="|${entry.value}|">class path</td>
+          <td th:text="|${entry.value.method.name}|">method</td>
         </tr>
       </tbody>
       <tbody th:unless="${package}">
         <tr th:each="entry, iter : ${handlerMethods}"
-          th:class="${(entry.key.methodsCondition.methods.size() >= 1) ? #strings.toLowerCase(entry.key.methodsCondition.methods[0]) : ''}">
+          th:class="${(entry.key.methodsCondition.methods.size() >= 1) ? #strings.toLowerCase(entry.key.methodsCondition.methods[0]) : 'error-tabs'}">
           <th scope="row" th:text="${iter.index}">id</th>
           <th scope="row"
             th:text="${(entry.key.methodsCondition.methods.size() >= 1) ? #strings.toLowerCase(entry.key.methodsCondition.methods[0]) : ''}">method</th>

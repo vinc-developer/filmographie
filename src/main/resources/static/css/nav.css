@@ -1,8 +1,54 @@
 .info-header{
     display: flex;
     justify-content: space-between;
-    margin: 0 10px;
+    margin: 5px 15px -5px 15px;
+    font-size: 19px;
+}
+.info-header div.nav-item-dropdown a{
+    padding: 0 !important;
 }
 .insta{
     color: red;
+}
+.github{
+    color: white;
+}
+
+.btn-logout{
+    border: none;
+    background-color: black;
+    color: red;
+}
+
+ul.dropdown-menu{
+    background-color: black;
+    border: 1px solid red;
+    margin-top: -5px !important;
+}
+ul.dropdown-menu li{
+    text-align: center;
+    color: red;
+}
+ul.dropdown-menu li a{
+    color: red;
+}
+ul.dropdown-menu li a:hover{
+    background-color: black;
+    color: red;
+}
+
+.navbar h1{
+    display: contents;
+}
+.navbar h1 a{
+    color: red !important;
+    font-size: 25px;
+    font-weight: bold;
+}
+.nav-login a{
+    color: red !important;
+}
+#navbarDropdown{
+    color: red !important;
+    padding: 0 !important;
 }

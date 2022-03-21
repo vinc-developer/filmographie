@@ -2,10 +2,38 @@
 <html lang="en">
 <head th:replace="fragments/header :: head(title='Profil')"></head>
 <body>
-<header th:replace="fragments/header :: header"></header>
+    <header th:replace="fragments/header :: header"></header>
 
-<section>
-    <h2>Listes des utilisateurs</h2>
-</section>
+    <section id="all-user">
+        <h2>Listes des utilisateurs</h2>
+
+        <div class="btn-add-card">
+            <a type="button" class="btn btn-success" th:href="@{/admin/user/register}" >Ajouter un Utilisateur</a>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Admin</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <th scope="row" th:text="${user.id}"></th>
+                <td th:text="${user.nom}"></td>
+                <td th:text="${user.prenom}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td th:if="${user.admin == true}" class="green-text"><i class="bi bi-check-lg"></i></td>
+                <td th:if="${user.admin == false}" class="red-text"><i class="bi bi-x-square"></i></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>

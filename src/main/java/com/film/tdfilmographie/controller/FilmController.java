@@ -1,10 +1,8 @@
 package com.film.tdfilmographie.controller;
 
+import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.bo.Film;
-import com.film.tdfilmographie.service.Impl.CastActeurImpl;
-import com.film.tdfilmographie.service.Impl.CastRealisateurImpl;
-import com.film.tdfilmographie.service.Impl.FilmImpl;
-import com.film.tdfilmographie.service.Impl.GenreImpl;
+import com.film.tdfilmographie.service.Impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping()
@@ -29,6 +28,9 @@ public class FilmController {
 
     @Autowired
     private CastRealisateurImpl castRealisateurService;
+
+    @Autowired
+    private AvisImpl avisService;
 
     @GetMapping("/admin/film/get-all")
     public String getFilm(Model model){
@@ -48,7 +50,19 @@ public class FilmController {
     @GetMapping("/private/film/get-one/{id}")
     public String getById(@PathVariable String id, Model model){
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
-        model.addAttribute("avgAvis", 3);
+        int incr = 0;
+        List<Avis> listAvis = avisService.getAllAvis(Integer.parseInt(id));
+        System.out.println(listAvis);
+        if(listAvis.size() > 0){
+            for(Avis a : listAvis){
+                incr += a.getNote();
+            }
+            int avg = incr / listAvis.size();
+            model.addAttribute("avgAvis", avg);
+        } else{
+            model.addAttribute("avgAvis", incr);
+        }
+
         return "/film/get-id-film.html";
     }
 
