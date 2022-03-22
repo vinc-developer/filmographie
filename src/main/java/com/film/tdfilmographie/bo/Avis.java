@@ -1,20 +1,37 @@
 package com.film.tdfilmographie.bo;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class Avis {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     private int note;
 
+    @NotNull
     private String commentaire;
 
     private LocalDate dateAjout = LocalDate.now();
 
+    @ManyToOne
     private User user;
 
+
     private int idFilm;
+
+    public int getIdFilm() {
+        return idFilm;
+    }
+
+    public void setIdFilm(int idFilm) {
+        this.idFilm = idFilm;
+    }
 
     public Avis() {
     }
@@ -25,14 +42,6 @@ public class Avis {
         this.commentaire = commentaire;
         this.dateAjout = dateAjout;
         this.user = user;
-        this.idFilm = idFilm;
-    }
-
-    public int getIdFilm() {
-        return idFilm;
-    }
-
-    public void setIdFilm(int idFilm) {
         this.idFilm = idFilm;
     }
 

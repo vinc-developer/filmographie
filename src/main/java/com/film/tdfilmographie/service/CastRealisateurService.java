@@ -1,7 +1,9 @@
 package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.CastRealisateur;
+import com.film.tdfilmographie.repository.CastRealisateurRepository;
 import com.film.tdfilmographie.service.Impl.CastRealisateurImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +12,10 @@ import java.util.List;
 @Service()
 public class CastRealisateurService implements CastRealisateurImpl {
 
-    List<CastRealisateur> castListR = new ArrayList<>();
+    @Autowired
+    private CastRealisateurRepository castRealisateurRepository;
+
+    /*List<CastRealisateur> castListR = new ArrayList<>();
 
     public CastRealisateurService(){
         // Forest Gump
@@ -26,10 +31,11 @@ public class CastRealisateurService implements CastRealisateurImpl {
         castListR.add(C2);
         castListR.add(C3);
         castListR.add(C4);
-    }
+    }*/
 
     @Override
     public List<CastRealisateur> getAllCast() {
+        List<CastRealisateur> castListR = castRealisateurRepository.findAll();
         if(castListR.size() == 0){
             return null;
         }
@@ -38,14 +44,16 @@ public class CastRealisateurService implements CastRealisateurImpl {
 
     @Override
     public void ajoutCast(CastRealisateur cast) {
-        this.castListR.add(cast);
+        castRealisateurRepository.save(cast);
+        // this.castListR.add(cast);
     }
 
     @Override
     public CastRealisateur getCast(int id) {
+        List<CastRealisateur> castListR = castRealisateurRepository.findAll();
         for(CastRealisateur cast : castListR) {
             if(cast.getId() == id){
-                return cast;
+                return castRealisateurRepository.getById(id);
             }
         }
         return null;
@@ -53,6 +61,12 @@ public class CastRealisateurService implements CastRealisateurImpl {
 
     @Override
     public void deleteCastRealisateur(int id) {
-        castListR.removeIf(cast -> cast.getId() == id);
+        List<CastRealisateur> castListR = castRealisateurRepository.findAll();
+        for(CastRealisateur cast : castListR){
+          if(cast.getId() == id){
+              castRealisateurRepository.deleteById(id);
+          }
+        }
+        //castListR.removeIf(cast -> cast.getId() == id);
     }
 }

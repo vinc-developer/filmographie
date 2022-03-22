@@ -1,27 +1,34 @@
 package com.film.tdfilmographie.bo;
 
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
+@Entity(name = "userMovie")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty
+    @NotNull
     private String nom;
 
-    @NotEmpty
+    @NotNull
     private String prenom;
 
-    @NotEmpty
+    @NotNull
     private String username;
 
-    @NotEmpty
+    @NotNull
     private String email;
 
-    @NotEmpty
+    @NotNull
     private String password;
 
-    private boolean admin;
+    @NotNull
+    private boolean admin = false;
+
 
     public User() {
     }

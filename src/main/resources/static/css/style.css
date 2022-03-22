@@ -201,16 +201,14 @@ header{
     font-size: 20px;
 }
 #list-film-home-action{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    margin-left: 55px;
+    display: block ruby;
+    overflow: auto;
+    margin: 50px 55px;
 }
 #list-film-home-science{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    margin-left: 55px;
+    display: block ruby;
+    overflow: auto;
+    margin: 50px 55px;
 }
 .card-film-home{
     height: 450px;

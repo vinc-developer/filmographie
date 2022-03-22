@@ -16,13 +16,14 @@ public class GestionAuthentification implements UserDetailsService {
 
     private List<User> users = new ArrayList<>();
     private PasswordEncoder passwordEncoder;
+    private User current;
 
     public GestionAuthentification(PasswordEncoder passwordEncoder){
         User U1 = new User(1,"alex","terrieur", "alexterrieur", "alex@terrieur.com", passwordEncoder.encode("user1"), false);
-        User U2 = new User(2,"alain", "terrieur", "alainterrieur", "alain@terrieur.com", passwordEncoder.encode("user2"), false);
+        User U2 = new User(5,"alain", "terrieur", "alainterrieur", "alain@terrieur.com", passwordEncoder.encode("user2"), false);
         User U3 = new User(3, "marc", "assin", "marcassin", "marc@assin.com", passwordEncoder.encode("admin1"), true);
         User U4 = new User(4, "sarah", "croche", "sarahcroche", "sarah@croche.com", passwordEncoder.encode("user3"), false);
-        User U5 = new User(5, "vinc", "dev", "vinc-dev", "vinc@dev.com", passwordEncoder.encode("admin2"), true);
+        User U5 = new User(2, "vinc", "dev", "vinc-dev", "vinc@dev.com", passwordEncoder.encode("admin2"), true);
         users.add(U1);
         users.add(U2);
         users.add(U3);
@@ -34,9 +35,14 @@ public class GestionAuthentification implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
        for(User user : users){
            if(user.getEmail().equals(username)){
+               current = user;
                return new Utilisateur(user);
            }
        }
        throw new UsernameNotFoundException(username);
+    }
+
+    public User getUser(){
+        return current;
     }
 }

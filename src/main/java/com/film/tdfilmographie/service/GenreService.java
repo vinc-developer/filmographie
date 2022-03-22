@@ -15,7 +15,7 @@ public class GenreService implements GenreImpl {
     @Autowired
     private GenreRepository genreRepo;
 
-    List<Genre> genres = new ArrayList<>();
+    /*List<Genre> genres = new ArrayList<>();
 
     public GenreService(){
         Genre G1 = new Genre(1,"Horreur");
@@ -29,12 +29,12 @@ public class GenreService implements GenreImpl {
         genres.add(G3);
         genres.add(G4);
         genres.add(G5);
-    }
+    }*/
 
     @Override
     public void ajoutGenre(Genre genre) {
         genreRepo.save(genre);
-        this.genres.add(genre);
+        //this.genres.add(genre);
     }
 
     @Override

@@ -2,32 +2,46 @@ package com.film.tdfilmographie.bo;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
+@Entity
 public class Film {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     private String titre;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateSortie;
 
+    @NotNull
     private int duree;
 
+    @NotNull
     private String synopsis;
 
+    @NotNull
     private String urlImage;
 
+    @NotNull
     private String urlVideo;
 
+    @ManyToOne
     private Genre genre;
 
+    @ManyToMany
     private List<CastActeur> castActeur;
 
+    @ManyToOne
     private CastRealisateur castRealisateur;
 
+    @OneToMany
     private List<Avis> avisList;
 
     public Film() {

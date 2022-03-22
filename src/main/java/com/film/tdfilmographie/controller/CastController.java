@@ -52,7 +52,7 @@ public class CastController {
         return "redirect:/admin/cast";
     }
 
-    @GetMapping("/add-realisateur")
+    @PostMapping("/add-realisateur")
     public String addCastRealisateur(@Valid CastRealisateur castRealisateur, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
             return "/cast/add-cast-realisateur.html";
@@ -64,7 +64,6 @@ public class CastController {
 
     @GetMapping("/delete-cast-acteur/{id}")
     public String deleteCastActeur(@PathVariable String id, RedirectAttributes redirect){
-        System.out.println(id);
         castService.deleteCastActeur(Integer.parseInt(id));
         redirect.addFlashAttribute("message", "L'acteur a bien été supprimé !");
         return "redirect:/admin/cast";

@@ -1,6 +1,7 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Avis;
+import com.film.tdfilmographie.security.service.GestionAuthentification;
 import com.film.tdfilmographie.service.Impl.AvisImpl;
 import com.film.tdfilmographie.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class AvisController {
     @Autowired
     FilmImpl filmService;
 
+    @Autowired
+    GestionAuthentification user;
+
     @GetMapping("/get-all/{id}")
     public String getAvisList(@PathVariable String id, Model model){
         model.addAttribute("allAvis", avisService.getAllAvis(Integer.parseInt(id)));
@@ -39,11 +43,17 @@ public class AvisController {
 
     @PostMapping("/insert/{id}")
     public String addAvis(@PathVariable String id, @Valid Avis avis, BindingResult binding, RedirectAttributes redirect){
+        System.out.println("entre");
         if(binding.hasErrors()){
             return "/avis/add-avis.html";
         }
+        if(user.getUser() == null){
+            redirect.addFlashAttribute("message", "Vous n'etes pas connecter");
+            return "redirect:/";
+        }
         avis.setDateAjout(LocalDate.now());
         avis.setIdFilm(Integer.parseInt(id));
+        avis.setUser(user.getUser());
         avisService.addAvis(avis);
         redirect.addFlashAttribute("message", "Ajout réussi");
         return "redirect:/private/avis/get-all/" + id;

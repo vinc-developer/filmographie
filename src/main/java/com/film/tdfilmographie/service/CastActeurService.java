@@ -1,7 +1,9 @@
 package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.CastActeur;
+import com.film.tdfilmographie.repository.CastActeurRepository;
 import com.film.tdfilmographie.service.Impl.CastActeurImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,7 +12,10 @@ import java.util.List;
 @Service()
 public class CastActeurService implements CastActeurImpl {
 
-    List<CastActeur> castList = new ArrayList<>();
+    @Autowired
+    CastActeurRepository castActeurRepository;
+
+    /*List<CastActeur> castList = new ArrayList<>();
 
     public CastActeurService(){
         // Forest Gump
@@ -39,10 +44,11 @@ public class CastActeurService implements CastActeurImpl {
         castList.add(C7);
         castList.add(C8);
         castList.add(C9);
-    }
+    }*/
 
     @Override
     public List<CastActeur> getAllCast(){
+        List<CastActeur> castList = castActeurRepository.findAll();
         if(castList.size() == 0){
             return null;
         }
@@ -52,14 +58,16 @@ public class CastActeurService implements CastActeurImpl {
 
     @Override
     public void ajoutCast(CastActeur cast) {
-        this.castList.add(cast);
+        castActeurRepository.save(cast);
+        //this.castList.add(cast);
     }
 
     @Override
     public CastActeur getCast(int id) {
+        List<CastActeur> castList = castActeurRepository.findAll();
         for(CastActeur cast : castList) {
             if(cast.getId() == id){
-                return cast;
+                return castActeurRepository.getById(id);
             }
         }
         return null;
@@ -67,7 +75,13 @@ public class CastActeurService implements CastActeurImpl {
 
     @Override
     public void deleteCastActeur(int id) {
-        castList.removeIf(cast -> cast.getId() == id);
+        List<CastActeur> castList = castActeurRepository.findAll();
+        for(CastActeur cast : castList){
+            if(cast.getId() == id){
+                castActeurRepository.deleteById(id);
+            }
+        }
+        //castList.removeIf(cast -> cast.getId() == id);
     }
 
 }

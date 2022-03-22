@@ -2,7 +2,10 @@ package com.film.tdfilmographie.service;
 
 
 import com.film.tdfilmographie.bo.Avis;
+import com.film.tdfilmographie.bo.User;
+import com.film.tdfilmographie.repository.AvisRepository;
 import com.film.tdfilmographie.service.Impl.AvisImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -11,6 +14,9 @@ import java.util.List;
 
 @Service()
 public class AvisService implements AvisImpl {
+
+    @Autowired
+    private AvisRepository avisRepository;
 
     List<Avis> avisList = new ArrayList<>();
 
@@ -45,11 +51,12 @@ public class AvisService implements AvisImpl {
     @Override
     public void addAvis(Avis avis) {
         this.avisList.add(avis);
+        avisRepository.save(avis);
     }
 
     @Override
     public List<Avis> getAllAvis(int id) {
-        List<Avis> avisBack = new ArrayList<>();
+        List<Avis> avisBack = avisRepository.getById(id);
         for(Avis avis : avisList){
             if(avis.getIdFilm() == id){
                 avisBack.add(avis);
