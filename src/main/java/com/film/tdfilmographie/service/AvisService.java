@@ -20,7 +20,7 @@ public class AvisService implements AvisImpl {
 
     List<Avis> avisList = new ArrayList<>();
 
-    public AvisService(){
+   /* public AvisService(){
         LocalDate D1 = LocalDate.of(2009, 12, 16);
         Avis A1 = new Avis(1, 2, "bon filme", D1 , null, 1);
         LocalDate D2 = LocalDate.of(2019, 3, 26);
@@ -46,7 +46,7 @@ public class AvisService implements AvisImpl {
         avisList.add(A6);
         avisList.add(A7);
         avisList.add(A8);
-    }
+    }*/
 
     @Override
     public void addAvis(Avis avis) {
@@ -58,7 +58,7 @@ public class AvisService implements AvisImpl {
     public List<Avis> getAllAvis(int id) {
         List<Avis> avisBack = avisRepository.getById(id);
         for(Avis avis : avisList){
-            if(avis.getIdFilm() == id){
+            if(avis.getFilm().getId() == id){
                 avisBack.add(avis);
             }
         }

@@ -30,7 +30,7 @@ public class FilmService implements FilmImpl {
         LocalDate dateSortie1 = LocalDate.of(2009, 12, 16);
 
         Film F1 = new Film(1, "Avatar", dateSortie1, 182, "Malgré sa paralysie, Jake Sully, un ancien marine immobilisé dans un fauteuil roulant, est resté un combattant au plus profond de son être. Il est recruté pour se rendre à des années-lumière de la Terre, sur Pandora, où de puissants groupes industriels exploitent un minerai rarissime destiné à résoudre la crise énergétique sur Terre. Parce que l'atmosphère de Pandora est toxique pour les humains, ceux-ci ont créé le Programme Avatar, qui permet à des \" pilotes \" humains de lier leur esprit à un avatar, un corps biologique commandé à distance, capable de survivre dans cette atmosphère létale. Ces avatars sont des hybrides créés génétiquement en croisant l'ADN humain avec celui des Na'vi, les autochtones de Pandora.\n" +
-                "Sous sa forme d'avatar, Jake peut de nouveau marcher. On lui confie une mission d'infiltration auprès des Na'vi, devenus un obstacle trop conséquent à l'exploitation du précieux minerai. Mais tout va changer lorsque Neytiri, une très belle Na'vi, sauve la vie de Jake... ", "https://fr.web.img5.acsta.net/c_310_420/medias/nmedia/18/78/95/70/19485155.jpg", "https://www.youtube.com/embed/O1CzgULNRGs", G1, castList1, CR1, null);
+                "Sous sa forme d'avatar, Jake peut de nouveau marcher. On lui confie une mission d'infiltration auprès des Na'vi, devenus un obstacle trop conséquent à l'exploitation du précieux minerai. Mais tout va changer lorsque Neytiri, une très belle Na'vi, sauve la vie de Jake... ", "https://fr.web.img5.acsta.net/c_310_420/medias/nmedia/18/78/95/70/19485155.jpg", "https://www.youtube.com/embed/O1CzgULNRGs", G1, castList1, CR1);
         filmList.add(F1);
 
         //Fast & Furious 8
@@ -48,7 +48,7 @@ public class FilmService implements FilmImpl {
 
         Film F2 = new Film(2, "Fast & Furious 8", dateSortie2, 163, "Maintenant que Dom et Letty sont en lune de miel, que Brian et Mia se sont rangés et que le reste de l’équipe a été disculpé, la bande de globetrotteurs retrouve un semblant de vie normale. Mais quand une mystérieuse femme entraîne Dom dans le monde de la criminalité, ce dernier ne pourra éviter de trahir ses proches qui vont faire face à des épreuves qu’ils n’avaient jamais rencontrées jusqu’alors.\n" +
                 "\n" +
-                "Des rivages de Cuba au rues de New York en passant par les plaines gelées de la mer arctique de Barrents, notre équipe va sillonner le globe pour tenter d'empêcher une anarchiste de déchaîner un chaos mondial et de ramener à la maison l’homme qui a fait d’eux une famille. ", "https://fr.web.img6.acsta.net/c_310_420/pictures/17/03/03/17/27/305158.jpg", "https://www.youtube.com/embed/xFO-pKB13mw", G2, castList2, CR2, null);
+                "Des rivages de Cuba au rues de New York en passant par les plaines gelées de la mer arctique de Barrents, notre équipe va sillonner le globe pour tenter d'empêcher une anarchiste de déchaîner un chaos mondial et de ramener à la maison l’homme qui a fait d’eux une famille. ", "https://fr.web.img6.acsta.net/c_310_420/pictures/17/03/03/17/27/305158.jpg", "https://www.youtube.com/embed/xFO-pKB13mw", G2, castList2, CR2);
         filmList.add(F2);
 
         // Babisitting
@@ -66,7 +66,7 @@ public class FilmService implements FilmImpl {
         Genre G3 = new Genre(3, "Comedie");
         LocalDate dateSortie3 = LocalDate.of(2014, 04, 16);
 
-        Film F3 = new Film(3, "Babysitting", dateSortie3, 84, "Faute de baby-sitter pour le week-end, Marc Schaudel confie son fils Remy à Franck, son employé, \"un type sérieux\" selon lui. Sauf que Franck a 30 ans ce soir et que Rémy est un sale gosse capricieux. Au petit matin, Marc et sa femme Claire sont réveillés par un appel de la police. Rémy et Franck ont disparu ! Au milieu de leur maison saccagée, la police a retrouvé une caméra. Marc et Claire découvrent hallucinés les images tournées pendant la soirée.", "https://fr.web.img5.acsta.net/c_310_420/pictures/14/01/22/09/59/509268.jpg", "https://www.youtube.com/embed/30PQMw7TU6M", G3, castList3, CR3, null);
+        Film F3 = new Film(3, "Babysitting", dateSortie3, 84, "Faute de baby-sitter pour le week-end, Marc Schaudel confie son fils Remy à Franck, son employé, \"un type sérieux\" selon lui. Sauf que Franck a 30 ans ce soir et que Rémy est un sale gosse capricieux. Au petit matin, Marc et sa femme Claire sont réveillés par un appel de la police. Rémy et Franck ont disparu ! Au milieu de leur maison saccagée, la police a retrouvé une caméra. Marc et Claire découvrent hallucinés les images tournées pendant la soirée.", "https://fr.web.img5.acsta.net/c_310_420/pictures/14/01/22/09/59/509268.jpg", "https://www.youtube.com/embed/30PQMw7TU6M", G3, castList3, CR3);
         filmList.add(F3);
 
         //Forrest gump
@@ -81,7 +81,7 @@ public class FilmService implements FilmImpl {
 
         LocalDate dateSortie4 = LocalDate.of(1994, 10, 5);
 
-        Film F4 = new Film(4, "Forrest Gump", dateSortie4, 160, "Quelques décennies d'histoire américaine, des années 1940 à la fin du XXème siècle, à travers le regard et l'étrange odyssée d'un homme simple et pur, Forrest Gump. ", "https://fr.web.img4.acsta.net/pictures/15/10/13/15/12/514297.jpg", "https://www.youtube.com/embed/GRe3ZsXAZE4", G3, castList4, CR4, null);
+        Film F4 = new Film(4, "Forrest Gump", dateSortie4, 160, "Quelques décennies d'histoire américaine, des années 1940 à la fin du XXème siècle, à travers le regard et l'étrange odyssée d'un homme simple et pur, Forrest Gump. ", "https://fr.web.img4.acsta.net/pictures/15/10/13/15/12/514297.jpg", "https://www.youtube.com/embed/GRe3ZsXAZE4", G3, castList4, CR4);
         filmList.add(F4);
 
         //Vaiana
@@ -96,7 +96,7 @@ public class FilmService implements FilmImpl {
         LocalDate dateSortie5 = LocalDate.of(2016, 11, 16);
 
         Film F5 = new Film(5, "Vaiana", dateSortie5, 107, "Il y a 3 000 ans, les plus grands marins du monde voyagèrent dans le vaste océan Pacifique, à la découverte des innombrables îles de l'Océanie. Mais pendant le millénaire qui suivit, ils cessèrent de voyager. Et personne ne sait pourquoi...\n" +
-                "Vaiana, la légende du bout du monde raconte l'aventure d'une jeune fille téméraire qui se lance dans un voyage audacieux pour accomplir la quête inachevée de ses ancêtres et sauver son peuple. Au cours de sa traversée du vaste océan, Vaiana va rencontrer Maui, un demi-dieu. Ensemble, ils vont accomplir un voyage épique riche d'action, de rencontres et d'épreuves... En accomplissant la quête inaboutie de ses ancêtres, Vaiana va découvrir la seule chose qu'elle a toujours cherchée : elle-même. ", "https://fr.web.img6.acsta.net/c_310_420/pictures/16/09/14/09/17/148002.jpg", "https://www.youtube.com/embed/JIl74jge_Wg", G5, castList5, CR5, null);
+                "Vaiana, la légende du bout du monde raconte l'aventure d'une jeune fille téméraire qui se lance dans un voyage audacieux pour accomplir la quête inachevée de ses ancêtres et sauver son peuple. Au cours de sa traversée du vaste océan, Vaiana va rencontrer Maui, un demi-dieu. Ensemble, ils vont accomplir un voyage épique riche d'action, de rencontres et d'épreuves... En accomplissant la quête inaboutie de ses ancêtres, Vaiana va découvrir la seule chose qu'elle a toujours cherchée : elle-même. ", "https://fr.web.img6.acsta.net/c_310_420/pictures/16/09/14/09/17/148002.jpg", "https://www.youtube.com/embed/JIl74jge_Wg", G5, castList5, CR5);
         filmList.add(F5);
     }
 

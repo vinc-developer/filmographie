@@ -52,7 +52,7 @@ public class AvisController {
             return "redirect:/";
         }
         avis.setDateAjout(LocalDate.now());
-        avis.setIdFilm(Integer.parseInt(id));
+        avis.setFilm(filmService.getById(Integer.parseInt(id)));
         avis.setUser(user.getUser());
         avisService.addAvis(avis);
         redirect.addFlashAttribute("message", "Ajout réussi");

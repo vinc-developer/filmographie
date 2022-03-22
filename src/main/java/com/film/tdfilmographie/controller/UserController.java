@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Objects;
 
 @Controller
 @RequestMapping()
@@ -45,11 +43,24 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/add-register")
-    public String register(@Valid User user, BindingResult binding){
+    public String register(@RequestParam String confirmPassword, @Valid User user, BindingResult binding, RedirectAttributes redirect){
         if(binding.hasErrors()){
             return "/user/register.html";
         }
+        if(!Objects.equals(confirmPassword, user.getPassword())){
+            redirect.addFlashAttribute("message", "Une erreur c'est produite, mercie de verifier les champs");
+            return "redirect:/admin/user/register";
+        }
         userService.addUser(user);
+        redirect.addFlashAttribute("message", "Ajout réussi");
+        return "redirect:/admin/user/get-all";
+    }
+
+
+    @PostMapping("/admin/delete-user")
+    public String deleteUser(@RequestParam String id, RedirectAttributes redirect){
+        userService.deleteUser(Integer.parseInt(id));
+        redirect.addFlashAttribute("message", "Suppression réussi");
         return "redirect:/admin/user/get-all";
     }
 }

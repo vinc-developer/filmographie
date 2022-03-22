@@ -2,6 +2,9 @@ body{
     background-color: black !important;
     color: antiquewhite !important;
 }
+.input-cache{
+    display: none;
+}
 .green-text{
     color: green !important;
 }
@@ -38,6 +41,16 @@ header{
     font-weight: bold;
     margin: auto;
     background-color: green;
+}
+.error-message{
+    color: white;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+    width: 90%;
+    font-weight: bold;
+    margin: auto;
+    background-color: red;
 }
 
 /* CAST */

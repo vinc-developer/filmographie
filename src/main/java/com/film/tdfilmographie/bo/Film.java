@@ -41,13 +41,10 @@ public class Film {
     @ManyToOne
     private CastRealisateur castRealisateur;
 
-    @OneToMany
-    private List<Avis> avisList;
-
     public Film() {
     }
 
-    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, String urlVideo, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur, List<Avis> avisList) {
+    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, String urlVideo, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur) {
         this.id = id;
         this.titre = titre;
         this.dateSortie = dateSortie;
@@ -58,7 +55,6 @@ public class Film {
         this.genre = genre;
         this.castActeur = castActeur;
         this.castRealisateur = castRealisateur;
-        this.avisList = avisList;
     }
 
     public String getUrlVideo() {
@@ -141,11 +137,4 @@ public class Film {
         this.castRealisateur = castRealisateur;
     }
 
-    public List<Avis> getAvisList() {
-        return avisList;
-    }
-
-    public void setAvisList(List<Avis> avisList) {
-        this.avisList = avisList;
-    }
 }

@@ -12,6 +12,7 @@
         </header>
         <section id="register">
             <h2>S'enregistrer</h2>
+            <p th:if="${message}" class="error-message" th:text="${message}"></p>
             <form th:object="${user}" method="post" th:action="@{/admin/user/add-register}">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nom" placeholder="nom" th:field="*{nom}">
@@ -39,7 +40,7 @@
                     <span class="alert-danger" th:errors="*{password}"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
+                    <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="Password">
                     <label for="confirmPassword">Confirm Password</label>
                 </div>
                 <div class="form-check form-switch">

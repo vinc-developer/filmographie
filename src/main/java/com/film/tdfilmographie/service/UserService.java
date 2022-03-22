@@ -1,7 +1,9 @@
 package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.User;
+import com.film.tdfilmographie.repository.UserRepository;
 import com.film.tdfilmographie.service.Impl.UserImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,13 @@ import java.util.List;
 @Service()
 public class UserService implements UserImpl {
 
-    private List<User> users = new ArrayList<>();
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+   /* private List<User> users = new ArrayList<>();
     public UserService(PasswordEncoder passwordEncoder){
         User U1 = new User(1,"alex","terrieur", "alexterrieur", "alex@terrieur.com", passwordEncoder.encode("user1"), false);
         User U2 = new User(2,"alain", "terrieur", "alainterrieur", "alain@terrieur.com", passwordEncoder.encode("user2"), false);
@@ -23,11 +31,12 @@ public class UserService implements UserImpl {
         users.add(U3);
         users.add(U4);
         users.add(U5);
-    }
+    }*/
 
     @Override
     public User getById(int id){
-        for(User user : users){
+        List<User> userList = userRepository.findAll();
+        for(User user : userList){
             if(user.getId() == id){
                 return user;
             }
@@ -37,17 +46,35 @@ public class UserService implements UserImpl {
 
     @Override
     public List<User> getAllUser(){
-        return users;
+        List<User> userList = userRepository.findAll();
+        if(userList.size() == 0){
+            return null;
+        }
+        return userList;
     }
 
     @Override
     public void addUser(User user){
-        users.add(user);
+        User userEntity = new User();
+        userEntity.setPrenom(user.getPrenom());
+        userEntity.setNom(user.getNom());
+        userEntity.setUsername(user.getUsername());
+        userEntity.setEmail(user.getEmail());
+        userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
+        userEntity.setAdmin(user.isAdmin());
+        userRepository.save(userEntity);
+        //users.add(user);
     }
 
     @Override
     public void deleteUser(int id){
-        users.removeIf(user -> user.getId() == id);
+        List<User> userList = userRepository.findAll();
+        for(User user : userList){
+            if(user.getId() == id){
+                userRepository.deleteById(id);
+            }
+        }
+        //users.removeIf(user -> user.getId() == id);
     }
 
 

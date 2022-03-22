@@ -22,27 +22,28 @@ public class Avis {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Film film;
 
-    private int idFilm;
-
-    public int getIdFilm() {
-        return idFilm;
-    }
-
-    public void setIdFilm(int idFilm) {
-        this.idFilm = idFilm;
-    }
 
     public Avis() {
     }
 
-    public Avis(int id, int note, String commentaire, LocalDate dateAjout, User user, int idFilm) {
+    public Avis(int id, int note, String commentaire, LocalDate dateAjout, User user, Film film) {
         this.id = id;
         this.note = note;
         this.commentaire = commentaire;
         this.dateAjout = dateAjout;
         this.user = user;
-        this.idFilm = idFilm;
+        this.film = film;
+    }
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
     }
 
     public int getId() {

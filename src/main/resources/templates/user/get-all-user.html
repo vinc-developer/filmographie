@@ -4,6 +4,8 @@
 <body>
     <header th:replace="fragments/header :: header"></header>
 
+    <p th:if="${message}" class="success" th:text="${message}"></p>
+
     <section id="all-user">
         <h2>Listes des utilisateurs</h2>
 
@@ -20,6 +22,8 @@
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
                 <th scope="col">Admin</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +35,13 @@
                 <td th:text="${user.email}"></td>
                 <td th:if="${user.admin == true}" class="green-text"><i class="bi bi-check-lg"></i></td>
                 <td th:if="${user.admin == false}" class="red-text"><i class="bi bi-x-square"></i></td>
+                <td><a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
+                <td>
+                    <form th:action="@{/admin/delete-user}" method="post">
+                        <input type="text" th:value="${user.id}" name="id" class="input-cache" />
+                        <button  class="btn btn-danger"><i class="bi bi-x-square"></i></button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
