@@ -155,10 +155,9 @@ header{
     text-align: center;
 }
 #list-film-home{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    margin-left: 55px;
+    display: block ruby;
+    overflow: auto;
+    margin: 50px 55px;
 }
 .header-admin{
     display: flex;

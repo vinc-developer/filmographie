@@ -1,7 +1,9 @@
 package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.Genre;
+import com.film.tdfilmographie.repository.GenreRepository;
 import com.film.tdfilmographie.service.Impl.GenreImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +11,9 @@ import java.util.List;
 
 @Service()
 public class GenreService implements GenreImpl {
+
+    @Autowired
+    private GenreRepository genreRepo;
 
     List<Genre> genres = new ArrayList<>();
 
@@ -28,20 +33,22 @@ public class GenreService implements GenreImpl {
 
     @Override
     public void ajoutGenre(Genre genre) {
+        genreRepo.save(genre);
         this.genres.add(genre);
     }
 
     @Override
     public List<Genre> getAllGenres() {
-        if(genres.size() == 0){
+        List<Genre> genrelist = genreRepo.findAll();
+        if(genrelist.size() == 0){
             return null;
         }
-        return genres;
+        return genrelist;
     }
 
     @Override
     public Genre getGenre(int id) {
-        for(Genre genre : genres){
+        for(Genre genre : genreRepo.findAll()){
            if(genre.getId() == id){
                return genre;
            }
@@ -51,6 +58,11 @@ public class GenreService implements GenreImpl {
 
     @Override
     public void deleteGenre(int id) {
-        genres.removeIf(genre -> genre.getId() == id);
+        List<Genre> genrelist = genreRepo.findAll();
+        for(Genre genre : genrelist){
+            if(genre.getId() == id){
+                genreRepo.deleteById(id);
+            }
+        }
     }
 }

@@ -1,12 +1,19 @@
 package com.film.tdfilmographie.bo;
 
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
 
+@Entity
 public class Genre {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty
+    @NotNull
     private String libelle;
 
     public Genre() {
