@@ -115,9 +115,9 @@ public class FilmService implements FilmImpl {
         return filmList;
     }
 
+    @Override
     public List<Film> getAllRecent(){
-        // la date la plus recente
-        List<Film> filmList = filmRepository.findAll();
+        List<Film> filmList = filmRepository.findAllByOrderByDateAjoutAsc();
         if(filmList.size() == 0){
             return null;
         }

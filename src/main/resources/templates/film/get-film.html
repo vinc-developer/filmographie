@@ -1,4 +1,5 @@
-<html lang="en">
+<html lang="fr" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="fragments/header :: head(title='Film')"></head>
 <body>
     <header th:replace="fragments/header :: header"></header>
@@ -7,14 +8,14 @@
 
 <section id="list-card">
     <h2>List des Films</h2>
-    <div class="btn-add-card">
+    <div class="btn-add-card" sec:authorize="hasRole('admin')">
         <a type="button" class="btn btn-success" th:href="@{/admin/film/formulaire-ajout-film}" >Add Film</a>
     </div>
 </section>
     <section id="admin-search-film">
         <form>
             <input type="text" placeholder="titre" name="titre"/>
-            <button class="small-margin btn btn-primary">Rechercher</button>
+            <button class="small-margin btn btn-primary"><i class="bi bi-search"></i></button>
         </form>
     </section>
 
@@ -22,12 +23,14 @@
     <div class="card card-film card-film-admin" style="width: 18rem;" th:each="film : ${films}">
         <div class="card-header header-admin">
             <span  th:text="${film.genre.libelle}"></span>
-            <div class="group-button">
+            <div class="group-button" sec:authorize="hasRole('admin')">
                 <a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a>
                 <a th:href="@{'/admin/film/delete-film/' + ${film.id}}" type="button" class="btn btn-danger"><i class="bi bi-x-square"></i></a>
             </div>
         </div>
-        <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+        <a th:href="@{'/private/film/get-one/' + ${film.id}}">
+            <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+        </a>
         <div class="card-body">
             <div class="card-titre-film">
                 <h5 class="card-title" th:text="${film.titre}"></h5>

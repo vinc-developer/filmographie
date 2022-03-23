@@ -8,6 +8,8 @@ public interface FilmImpl {
 
     public List<Film> getAllFilm();
 
+    List<Film> getAllRecent();
+
     public void ajoutFilm(Film film);
 
     public Film getById(int id);

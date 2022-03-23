@@ -32,7 +32,7 @@ public class FilmController {
     @Autowired
     private AvisImpl avisService;
 
-    @GetMapping("/admin/film/get-all")
+    @GetMapping("/film/get-all")
     public String getFilm(Model model, String titre){
         if(titre != null){
             model.addAttribute("films", filmService.listerFilmAvecTitre(titre));

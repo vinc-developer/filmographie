@@ -17,8 +17,8 @@ public class HomeController {
     private FilmImpl filmService;
 
     @GetMapping
-    public String getHome(@AuthenticationPrincipal Utilisateur utilisateur, Model model){
-        model.addAttribute("films", filmService.getAllFilm());
+    public String getHome(Model model){
+        model.addAttribute("films", filmService.getAllRecent());
         return "home.html";
     }
 }
