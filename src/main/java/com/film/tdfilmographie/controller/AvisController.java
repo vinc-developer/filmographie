@@ -2,8 +2,8 @@ package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.security.service.GestionAuthentification;
-import com.film.tdfilmographie.service.Impl.AvisImpl;
-import com.film.tdfilmographie.service.Impl.FilmImpl;
+import com.film.tdfilmographie.security.service.Impl.AvisImpl;
+import com.film.tdfilmographie.security.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +31,7 @@ public class AvisController {
     public String getAvisList(@PathVariable String id, Model model){
         model.addAttribute("allAvis", avisService.getAllAvis(Integer.parseInt(id)));
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
+        model.addAttribute("user", user.getUser());
         return "/avis/get-avis.html";
     }
 
@@ -43,7 +44,6 @@ public class AvisController {
 
     @PostMapping("/insert/{id}")
     public String addAvis(@PathVariable String id, @Valid Avis avis, BindingResult binding, RedirectAttributes redirect){
-        System.out.println("entre");
         if(binding.hasErrors()){
             return "/avis/add-avis.html";
         }

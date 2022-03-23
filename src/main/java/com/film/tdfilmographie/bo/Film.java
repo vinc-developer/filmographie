@@ -24,6 +24,7 @@ public class Film {
     private int duree;
 
     @NotNull
+    @Column(columnDefinition = "text")
     private String synopsis;
 
     @NotNull

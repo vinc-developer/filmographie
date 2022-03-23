@@ -8,4 +8,5 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User, Integer> {
     public List<User> findAll();
     public void deleteById(Integer id);
+    public User getById(Integer id);
 }

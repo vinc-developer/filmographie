@@ -1,12 +1,11 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
 import com.film.tdfilmographie.bo.CastRealisateur;
 import com.film.tdfilmographie.repository.CastRealisateurRepository;
-import com.film.tdfilmographie.service.Impl.CastRealisateurImpl;
+import com.film.tdfilmographie.security.service.Impl.CastRealisateurImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service()
@@ -50,22 +49,18 @@ public class CastRealisateurService implements CastRealisateurImpl {
 
     @Override
     public CastRealisateur getCast(int id) {
-        List<CastRealisateur> castListR = castRealisateurRepository.findAll();
-        for(CastRealisateur cast : castListR) {
-            if(cast.getId() == id){
-                return castRealisateurRepository.getById(id);
-            }
+        CastRealisateur cast = castRealisateurRepository.getById(id);
+        if(cast != null){
+            return cast;
         }
         return null;
     }
 
     @Override
     public void deleteCastRealisateur(int id) {
-        List<CastRealisateur> castListR = castRealisateurRepository.findAll();
-        for(CastRealisateur cast : castListR){
-          if(cast.getId() == id){
-              castRealisateurRepository.deleteById(id);
-          }
+        CastRealisateur cast = castRealisateurRepository.getById(id);
+        if(cast != null){
+            castRealisateurRepository.deleteById(id);
         }
         //castListR.removeIf(cast -> cast.getId() == id);
     }

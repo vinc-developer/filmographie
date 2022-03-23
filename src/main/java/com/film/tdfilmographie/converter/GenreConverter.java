@@ -1,7 +1,7 @@
 package com.film.tdfilmographie.converter;
 
 import com.film.tdfilmographie.bo.Genre;
-import com.film.tdfilmographie.service.Impl.GenreImpl;
+import com.film.tdfilmographie.security.service.Impl.GenreImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

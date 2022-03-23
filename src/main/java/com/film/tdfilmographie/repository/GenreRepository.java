@@ -8,5 +8,6 @@ import java.util.List;
 public interface GenreRepository extends CrudRepository<Genre, Integer> {
     public List<Genre> findAll();
     public void deleteById(Integer id);
+    public Genre getById(Integer id);
 
 }

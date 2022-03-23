@@ -1,13 +1,12 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
 import com.film.tdfilmographie.bo.User;
 import com.film.tdfilmographie.repository.UserRepository;
-import com.film.tdfilmographie.service.Impl.UserImpl;
+import com.film.tdfilmographie.security.service.Impl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service()

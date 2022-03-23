@@ -1,12 +1,11 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
 import com.film.tdfilmographie.bo.CastActeur;
 import com.film.tdfilmographie.repository.CastActeurRepository;
-import com.film.tdfilmographie.service.Impl.CastActeurImpl;
+import com.film.tdfilmographie.security.service.Impl.CastActeurImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service()
@@ -53,7 +52,6 @@ public class CastActeurService implements CastActeurImpl {
             return null;
         }
         return castList;
-
     }
 
     @Override
@@ -64,24 +62,19 @@ public class CastActeurService implements CastActeurImpl {
 
     @Override
     public CastActeur getCast(int id) {
-        List<CastActeur> castList = castActeurRepository.findAll();
-        for(CastActeur cast : castList) {
-            if(cast.getId() == id){
-                return castActeurRepository.getById(id);
-            }
+        CastActeur cast = castActeurRepository.getById(id);
+        if(cast != null){
+            return castActeurRepository.getById(id);
         }
         return null;
     }
 
     @Override
     public void deleteCastActeur(int id) {
-        List<CastActeur> castList = castActeurRepository.findAll();
-        for(CastActeur cast : castList){
-            if(cast.getId() == id){
-                castActeurRepository.deleteById(id);
-            }
+        CastActeur cast = castActeurRepository.getById(id);
+        if(cast != null){
+            castActeurRepository.deleteById(id);
         }
         //castList.removeIf(cast -> cast.getId() == id);
     }
-
 }

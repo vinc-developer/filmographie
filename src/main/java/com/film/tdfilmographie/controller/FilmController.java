@@ -2,7 +2,7 @@ package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.bo.Film;
-import com.film.tdfilmographie.service.Impl.*;
+import com.film.tdfilmographie.security.service.Impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,8 +52,7 @@ public class FilmController {
         model.addAttribute("film", filmService.getById(Integer.parseInt(id)));
         int incr = 0;
         List<Avis> listAvis = avisService.getAllAvis(Integer.parseInt(id));
-        System.out.println(listAvis);
-        if(listAvis.size() > 0){
+        if(listAvis != null){
             for(Avis a : listAvis){
                 incr += a.getNote();
             }

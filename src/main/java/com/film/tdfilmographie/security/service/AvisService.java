@@ -1,15 +1,12 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
 
 import com.film.tdfilmographie.bo.Avis;
-import com.film.tdfilmographie.bo.User;
 import com.film.tdfilmographie.repository.AvisRepository;
-import com.film.tdfilmographie.service.Impl.AvisImpl;
+import com.film.tdfilmographie.security.service.Impl.AvisImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service()
@@ -18,9 +15,9 @@ public class AvisService implements AvisImpl {
     @Autowired
     private AvisRepository avisRepository;
 
-    List<Avis> avisList = new ArrayList<>();
+    /*List<Avis> avisList = new ArrayList<>();
 
-   /* public AvisService(){
+    public AvisService(){
         LocalDate D1 = LocalDate.of(2009, 12, 16);
         Avis A1 = new Avis(1, 2, "bon filme", D1 , null, 1);
         LocalDate D2 = LocalDate.of(2019, 3, 26);
@@ -50,23 +47,25 @@ public class AvisService implements AvisImpl {
 
     @Override
     public void addAvis(Avis avis) {
-        this.avisList.add(avis);
+        //this.avisList.add(avis);
         avisRepository.save(avis);
     }
 
     @Override
     public List<Avis> getAllAvis(int id) {
-        List<Avis> avisBack = avisRepository.getById(id);
-        for(Avis avis : avisList){
-            if(avis.getFilm().getId() == id){
-                avisBack.add(avis);
-            }
+        List<Avis> avisBack = avisRepository.findAvisByFilmId(id);
+        if(avisBack.size() == 0){
+            return null;
         }
         return avisBack;
     }
 
     @Override
     public void deleteAvis(int id) {
-        avisList.removeIf(a -> a.getId() == id);
+        Avis avis = avisRepository.getById(id);
+        if(avis != null){
+            avisRepository.deleteAvisById(id);
+        }
+       // avisList.removeIf(a -> a.getId() == id);
     }
 }

@@ -16,7 +16,7 @@
     <section id="list-card-avis">
         <div class="card text-center card-avis" th:each="avis : ${allAvis}">
             <div class="card-header">
-                <span th:text="| Avis de  ${avis.user}|"></span>
+                <span th:text="| Avis de  ${avis.user.username}|"></span>
             </div>
             <div class="card-body">
                 <div class="rating-css">
@@ -59,7 +59,7 @@
                 <h6>Commentaire :</h6>
                 <p class="card-text" th:text="${avis.commentaire}"></p>
                 <p th:text="|Posté le ${avis.dateAjout}|"></p>
-                <div class="btn-avis-delete">
+                <div class="btn-avis-delete" th:if="${user.id == avis.user.id || user.admin == true}">
                     <a th:href="@{'/private/avis/delete-avis/' + ${avis.id} + '/' + ${film.id}}" type="button" class="btn btn-danger btn-avis-delete">Delete</a>
                 </div>
             </div>

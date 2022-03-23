@@ -1,7 +1,7 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.User;
-import com.film.tdfilmographie.service.Impl.UserImpl;
+import com.film.tdfilmographie.security.service.Impl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +48,7 @@ public class UserController {
             return "/user/register.html";
         }
         if(!Objects.equals(confirmPassword, user.getPassword())){
-            redirect.addFlashAttribute("message", "Une erreur c'est produite, mercie de verifier les champs");
+            redirect.addFlashAttribute("message", "Une erreur c'est produite, merci de verifier les champs");
             return "redirect:/admin/user/register";
         }
         userService.addUser(user);

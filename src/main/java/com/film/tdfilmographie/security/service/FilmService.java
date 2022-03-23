@@ -1,19 +1,20 @@
-package com.film.tdfilmographie.service;
+package com.film.tdfilmographie.security.service;
 
-import com.film.tdfilmographie.bo.CastActeur;
-import com.film.tdfilmographie.bo.CastRealisateur;
 import com.film.tdfilmographie.bo.Film;
-import com.film.tdfilmographie.bo.Genre;
-import com.film.tdfilmographie.service.Impl.FilmImpl;
+import com.film.tdfilmographie.repository.FilmRepository;
+import com.film.tdfilmographie.security.service.Impl.FilmImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service()
 public class FilmService implements FilmImpl {
-    List<Film> filmList = new ArrayList<>();
+
+    @Autowired
+    private FilmRepository filmRepository;
+
+    /*List<Film> filmList = new ArrayList<>();
 
     public FilmService() {
         //Avatar
@@ -98,30 +99,38 @@ public class FilmService implements FilmImpl {
         Film F5 = new Film(5, "Vaiana", dateSortie5, 107, "Il y a 3 000 ans, les plus grands marins du monde voyagèrent dans le vaste océan Pacifique, à la découverte des innombrables îles de l'Océanie. Mais pendant le millénaire qui suivit, ils cessèrent de voyager. Et personne ne sait pourquoi...\n" +
                 "Vaiana, la légende du bout du monde raconte l'aventure d'une jeune fille téméraire qui se lance dans un voyage audacieux pour accomplir la quête inachevée de ses ancêtres et sauver son peuple. Au cours de sa traversée du vaste océan, Vaiana va rencontrer Maui, un demi-dieu. Ensemble, ils vont accomplir un voyage épique riche d'action, de rencontres et d'épreuves... En accomplissant la quête inaboutie de ses ancêtres, Vaiana va découvrir la seule chose qu'elle a toujours cherchée : elle-même. ", "https://fr.web.img6.acsta.net/c_310_420/pictures/16/09/14/09/17/148002.jpg", "https://www.youtube.com/embed/JIl74jge_Wg", G5, castList5, CR5);
         filmList.add(F5);
-    }
+    }*/
 
     @Override
     public List<Film> getAllFilm() {
+        List<Film> filmList = filmRepository.findAll();
+        if(filmList.size() == 0){
+            return null;
+        }
         return filmList;
     }
 
     @Override
     public void ajoutFilm(Film film) {
-        filmList.add(film);
+        filmRepository.save(film);
+        //filmList.add(film);
     }
 
     @Override
     public Film getById(int id) {
-        for(Film film : filmList){
-            if(film.getId() == id){
-                return film;
-            }
+        Film filmBack = filmRepository.getById(id);
+        if(filmBack != null){
+            return filmBack;
         }
         return null;
     }
 
     @Override
     public void deleteFilm(int id) {
-        filmList.removeIf(film -> film.getId() == id);
+        Film filmBack = filmRepository.getById(id);
+        if(filmBack != null){
+           filmRepository.deleteById(id);
+        }
+        //filmList.removeIf(film -> film.getId() == id);
     }
 }
