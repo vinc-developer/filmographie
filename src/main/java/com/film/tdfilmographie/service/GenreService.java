@@ -1,8 +1,8 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.Genre;
 import com.film.tdfilmographie.repository.GenreRepository;
-import com.film.tdfilmographie.security.service.Impl.GenreImpl;
+import com.film.tdfilmographie.service.Impl.GenreImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

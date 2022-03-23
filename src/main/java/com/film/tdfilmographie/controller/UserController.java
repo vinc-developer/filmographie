@@ -1,7 +1,7 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.User;
-import com.film.tdfilmographie.security.service.Impl.UserImpl;
+import com.film.tdfilmographie.service.Impl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +23,12 @@ public class UserController {
     public String getRegisterUser(Model model){
         model.addAttribute("user", new User());
         return "/user/register.html";
+    }
+
+    @GetMapping("/user/inscription")
+    public String inscription(Model model){
+        model.addAttribute("user", new User());
+        return "/user/inscription.html";
     }
 
     @GetMapping("/admin/user/get-all")
@@ -54,6 +60,21 @@ public class UserController {
         userService.addUser(user);
         redirect.addFlashAttribute("message", "Ajout réussi");
         return "redirect:/admin/user/get-all";
+    }
+
+    @PostMapping("/user/add-inscription")
+    public String ajoutUtilisateur(@RequestParam String confirmPassword, @Valid User user, BindingResult binding, RedirectAttributes redirect){
+        if(binding.hasErrors()){
+            return "redirect:/user/inscription";
+        }
+        if(!Objects.equals(confirmPassword, user.getPassword())){
+            redirect.addFlashAttribute("message", "Une erreur c'est produite, merci de verifier les champs");
+            return "redirect:/user/inscription";
+        }
+        user.setAdmin(false);
+        userService.addUser(user);
+        redirect.addFlashAttribute("message", "Inscription réussi");
+        return "redirect:/login";
     }
 
 

@@ -1,8 +1,8 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.CastActeur;
 import com.film.tdfilmographie.repository.CastActeurRepository;
-import com.film.tdfilmographie.security.service.Impl.CastActeurImpl;
+import com.film.tdfilmographie.service.Impl.CastActeurImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +33,7 @@ public class CastActeurService implements CastActeurImpl {
         //Fast and Furious
         CastActeur C8 = new CastActeur(8, "Vin", "Diesel");
         CastActeur C9 = new CastActeur(9, "Dwayne", "Johnsons");
+         CastActeur C10 = new CastActeur(10, "Auli'i", "Cravlho");
 
         castList.add(C1);
         castList.add(C2);

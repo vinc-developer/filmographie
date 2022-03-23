@@ -9,5 +9,5 @@ public interface AvisRepository extends CrudRepository<Avis, Integer> {
 
     public Avis getById(Integer id);
     public List<Avis> findAvisByFilmId(Integer id);
-    public void deleteAvisById(Integer id);
+    public void deleteById(Integer id);
 }

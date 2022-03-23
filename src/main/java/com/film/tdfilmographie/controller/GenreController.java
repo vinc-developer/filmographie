@@ -1,7 +1,7 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Genre;
-import com.film.tdfilmographie.security.service.Impl.GenreImpl;
+import com.film.tdfilmographie.service.Impl.GenreImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

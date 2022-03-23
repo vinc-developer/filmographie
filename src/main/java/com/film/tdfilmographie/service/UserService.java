@@ -1,8 +1,8 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.User;
 import com.film.tdfilmographie.repository.UserRepository;
-import com.film.tdfilmographie.security.service.Impl.UserImpl;
+import com.film.tdfilmographie.service.Impl.UserImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -62,6 +62,11 @@ public class UserService implements UserImpl {
         userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
         userEntity.setAdmin(user.isAdmin());
         userRepository.save(userEntity);
+
+        if(userEntity.getId() == 1){
+            userEntity.setAdmin(true);
+            userRepository.save(userEntity);
+        }
         //users.add(user);
     }
 

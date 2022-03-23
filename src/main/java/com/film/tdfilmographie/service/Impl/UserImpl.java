@@ -1,4 +1,4 @@
-package com.film.tdfilmographie.security.service.Impl;
+package com.film.tdfilmographie.service.Impl;
 
 import com.film.tdfilmographie.bo.User;
 import org.springframework.security.crypto.password.PasswordEncoder;

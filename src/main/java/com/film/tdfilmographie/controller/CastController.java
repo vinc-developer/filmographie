@@ -2,8 +2,8 @@ package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.CastActeur;
 import com.film.tdfilmographie.bo.CastRealisateur;
-import com.film.tdfilmographie.security.service.Impl.CastActeurImpl;
-import com.film.tdfilmographie.security.service.Impl.CastRealisateurImpl;
+import com.film.tdfilmographie.service.Impl.CastActeurImpl;
+import com.film.tdfilmographie.service.Impl.CastRealisateurImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

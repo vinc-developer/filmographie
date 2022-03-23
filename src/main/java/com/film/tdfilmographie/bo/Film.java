@@ -42,10 +42,12 @@ public class Film {
     @ManyToOne
     private CastRealisateur castRealisateur;
 
+    private LocalDate dateAjout = LocalDate.now();
+
     public Film() {
     }
 
-    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, String urlVideo, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur) {
+    public Film(int id, String titre, LocalDate dateSortie, int duree, String synopsis, String urlImage, String urlVideo, Genre genre, List<CastActeur> castActeur, CastRealisateur castRealisateur, LocalDate dateAjout) {
         this.id = id;
         this.titre = titre;
         this.dateSortie = dateSortie;
@@ -56,6 +58,15 @@ public class Film {
         this.genre = genre;
         this.castActeur = castActeur;
         this.castRealisateur = castRealisateur;
+        this.dateAjout = dateAjout;
+    }
+
+    public LocalDate getDateAjout() {
+        return dateAjout;
+    }
+
+    public void setDateAjout(LocalDate dateAjout) {
+        this.dateAjout = dateAjout;
     }
 
     public String getUrlVideo() {

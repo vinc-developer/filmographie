@@ -1,9 +1,9 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
 
 import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.repository.AvisRepository;
-import com.film.tdfilmographie.security.service.Impl.AvisImpl;
+import com.film.tdfilmographie.service.Impl.AvisImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,7 +64,7 @@ public class AvisService implements AvisImpl {
     public void deleteAvis(int id) {
         Avis avis = avisRepository.getById(id);
         if(avis != null){
-            avisRepository.deleteAvisById(id);
+            avisRepository.deleteById(id);
         }
        // avisList.removeIf(a -> a.getId() == id);
     }

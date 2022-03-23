@@ -1,9 +1,9 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Avis;
-import com.film.tdfilmographie.security.service.GestionAuthentification;
-import com.film.tdfilmographie.security.service.Impl.AvisImpl;
-import com.film.tdfilmographie.security.service.Impl.FilmImpl;
+import com.film.tdfilmographie.service.GestionAuthentification;
+import com.film.tdfilmographie.service.Impl.AvisImpl;
+import com.film.tdfilmographie.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

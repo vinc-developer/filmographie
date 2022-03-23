@@ -12,7 +12,7 @@
 
         <h3>Les derniers Ajouts :</h3>
         <section id="list-film-home">
-            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film,itersat : ${films}" th:if="${itersat.index}<5">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
                 <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">

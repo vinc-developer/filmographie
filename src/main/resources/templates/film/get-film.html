@@ -11,9 +11,15 @@
         <a type="button" class="btn btn-success" th:href="@{/admin/film/formulaire-ajout-film}" >Add Film</a>
     </div>
 </section>
+    <section id="admin-search-film">
+        <form>
+            <input type="text" placeholder="titre" name="titre"/>
+            <button class="small-margin btn btn-primary">Rechercher</button>
+        </form>
+    </section>
 
-<section id="list-film-home">
-    <div class="card card-film" style="width: 18rem;" th:each="film : ${films}">
+<section id="list-film-admin">
+    <div class="card card-film card-film-admin" style="width: 18rem;" th:each="film : ${films}">
         <div class="card-header header-admin">
             <span  th:text="${film.genre.libelle}"></span>
             <div class="group-button">

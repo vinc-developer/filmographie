@@ -1,7 +1,7 @@
 package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.security.Utilisateur;
-import com.film.tdfilmographie.security.service.Impl.FilmImpl;
+import com.film.tdfilmographie.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
 import com.film.tdfilmographie.bo.User;
 import com.film.tdfilmographie.repository.UserRepository;

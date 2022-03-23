@@ -1,8 +1,10 @@
-package com.film.tdfilmographie.security.service;
+package com.film.tdfilmographie.service;
 
+import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.bo.Film;
+import com.film.tdfilmographie.repository.AvisRepository;
 import com.film.tdfilmographie.repository.FilmRepository;
-import com.film.tdfilmographie.security.service.Impl.FilmImpl;
+import com.film.tdfilmographie.service.Impl.FilmImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,9 @@ import java.util.List;
 
 @Service()
 public class FilmService implements FilmImpl {
+
+    @Autowired
+    private AvisRepository avisRepository;
 
     @Autowired
     private FilmRepository filmRepository;
@@ -110,6 +115,15 @@ public class FilmService implements FilmImpl {
         return filmList;
     }
 
+    public List<Film> getAllRecent(){
+        // la date la plus recente
+        List<Film> filmList = filmRepository.findAll();
+        if(filmList.size() == 0){
+            return null;
+        }
+        return filmList;
+    }
+
     @Override
     public void ajoutFilm(Film film) {
         filmRepository.save(film);
@@ -127,10 +141,19 @@ public class FilmService implements FilmImpl {
 
     @Override
     public void deleteFilm(int id) {
+        List<Avis> avisBack = avisRepository.findAvisByFilmId(id);
+        for(Avis avis : avisBack){
+            avisRepository.deleteById(avis.getId());
+        }
         Film filmBack = filmRepository.getById(id);
         if(filmBack != null){
-           filmRepository.deleteById(id);
+            filmRepository.deleteById(id);
         }
         //filmList.removeIf(film -> film.getId() == id);
+    }
+
+    @Override
+    public Object listerFilmAvecTitre(String titre) {
+        return filmRepository.findByTitreContaining(titre);
     }
 }

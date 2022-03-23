@@ -2,7 +2,7 @@ package com.film.tdfilmographie.controller;
 
 import com.film.tdfilmographie.bo.Avis;
 import com.film.tdfilmographie.bo.Film;
-import com.film.tdfilmographie.security.service.Impl.*;
+import com.film.tdfilmographie.service.Impl.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,8 +33,12 @@ public class FilmController {
     private AvisImpl avisService;
 
     @GetMapping("/admin/film/get-all")
-    public String getFilm(Model model){
-        model.addAttribute("films", filmService.getAllFilm());
+    public String getFilm(Model model, String titre){
+        if(titre != null){
+            model.addAttribute("films", filmService.listerFilmAvecTitre(titre));
+        }else{
+            model.addAttribute("films", filmService.getAllFilm());
+        }
         return "/film/get-film.html";
     }
 

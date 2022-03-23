@@ -1,4 +1,4 @@
-package com.film.tdfilmographie.security.service.Impl;
+package com.film.tdfilmographie.service.Impl;
 
 import com.film.tdfilmographie.bo.Film;
 
@@ -13,4 +13,6 @@ public interface FilmImpl {
     public Film getById(int id);
 
     public void deleteFilm(int id);
+
+    Object listerFilmAvecTitre(String titre);
 }

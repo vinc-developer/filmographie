@@ -12,6 +12,7 @@
             </header>
             <section id="login">
                 <h2>Se connecter</h2>
+                <p th:if="${message}" class="success" th:text="${message}"></p>
                 <form method="post" th:action="@{/login}">
                     <div th:if="${param.error}" class="red-text">
                         Invalid username and password.
@@ -34,7 +35,7 @@
                         </label>
                     </div>
                 </form>
-                <p>Prenmière visite ? <a th:href="@{/user/register}">Inscrivez vous.</a></p>
+                <p>Prenmière visite ? <a th:href="@{/user/inscription}">Inscrivez vous.</a></p>
             </section>
         </div>
     </div>

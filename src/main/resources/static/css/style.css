@@ -284,3 +284,25 @@ header{
     font-weight: bold;
 
 }
+
+#list-film-admin{
+    display: flex;
+    margin: 50px 55px;
+    flex-wrap: wrap;
+}
+.card-film-admin{
+    margin: 20px !important;
+}
+#admin-search-film{
+    display: flex;
+    justify-content: center;
+}
+#admin-search-film input{
+    width: 250px;
+    border: 1px solid blue;
+    border-radius: 50px;
+    height: 40px;
+}
+#admin-search-film button{
+    height: 40px;
+}
