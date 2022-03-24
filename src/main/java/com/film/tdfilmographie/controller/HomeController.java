@@ -21,4 +21,9 @@ public class HomeController {
         model.addAttribute("films", filmService.getAllRecent());
         return "home.html";
     }
+
+    @GetMapping("doc")
+    public String getDoc(){
+        return "/api/documentation.html";
+    }
 }
