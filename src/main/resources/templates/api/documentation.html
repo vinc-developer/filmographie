@@ -1,10 +1,282 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="fr"  xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments/header :: head(title='Documentation')"></head>
 <body>
+    <header th:replace="fragments/header :: header"></header>
+    <section id="list-mapping">
+        <h2>Documentation</h2>
+    </section>
+    <div class="card card-doc">
+        <div class="card-header">
+            Genre
+        </div>
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">/get-all-genre</h5>
+                <div class="icon-code" id="btn-genre-doc"><h6>Json Object</h6><i class="bi bi-caret-down"></i></div>
+                <div id="docGenre">
+                    <pre class="prettyprint">
+                        <code>
+    [
+        {
+            "id": 1,
+            "libelle": "Horreur"
+        },
+        {
+            "id": 2,
+            "libelle": "Science-fiction"
+        }
+    ]
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="card card-doc">
+        <div class="card-header">
+            Cast Acteur
+        </div>
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">/get-all-cast-actor</h5>
+                <div class="icon-code" id="btn-actor-doc"><h6>Json Object</h6><i class="bi bi-caret-down"></i></div>
+                <div id="docActor">
+                    <pre class="prettyprint">
+                        <code>
+    [
+        {
+            "id": 1,
+            "prenom": "Hanks",
+            "nom": "Tom"
+        },
+        {
+            "id": 2,
+            "prenom": "Wright",
+            "nom": "Robin"
+        }
+    ]
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-doc">
+        <div class="card-header">
+            Cast Réalisateur
+        </div>
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">/get-all-cast-producer</h5>
+                <div class="icon-code" id="btn-producer-doc"><h6>Json Object</h6><i class="bi bi-caret-down"></i></div>
+                <div id="docProducer">
+                    <pre class="prettyprint">
+                        <code>
+    [
+        {
+            "id": 1,
+            "prenom": "Zemeckis",
+            "nom": "Robert"
+        },
+        {
+            "id": 2,
+            "prenom": "Cameron",
+            "nom": "James"
+        }
+    ]
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-doc">
+        <div class="card-header">
+            Film
+        </div>
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">/get-all-film</h5>
+                <div class="icon-code" id="btn-film-doc"><h6>Json Object</h6><i class="bi bi-caret-down"></i></div>
+                <div id="docFilm">
+                    <pre class="prettyprint">
+                        <code>
+    [
+        {
+            "id": 2,
+            "titre": "Avatar",
+            "dateSortie": "2019-12-16",
+            "duree": 182,
+            "synopsis": "Sur la lointaine planète de Pandora, Jake Sully, un héros malgré lui, se lance dans une quête de rédemption, de découverte, d'amour inattendu, dont l'issue sera un combat héroïque pour sauver toute une civilisation. ",
+            "urlImage": "https://fr.web.img5.acsta.net/c_310_420/medias/nmedia/18/78/95/70/19485155.jpg",
+            "urlVideo": "https://www.youtube.com/embed/O1CzgULNRGs",
+            "genre": {
+                "id": 2,
+                "libelle": "Science-fiction"
+            },
+            "castActeur": [
+                {
+                    "id": 3,
+                    "prenom": "Worthington",
+                    "nom": "Sam"
+                },
+                {
+                    "id": 4,
+                    "prenom": "Saldana",
+                    "nom": "Zoé"
+                }
+            ],
+            "castRealisateur": {
+                "id": 2,
+                "prenom": "Cameron",
+                "nom": "James"
+            },
+            "dateAjout": "2022-03-23"
+        },
+        {
+            "id": 3,
+            "titre": "Fast & Furious 8",
+            "dateSortie": "2017-04-12",
+            "duree": 163,
+            "synopsis": "Maintenant que Dom et Letty sont en lune de miel, que Brian et Mia se sont rangés et que le reste de l’équipe a été disculpé, la bande de globetrotteurs retrouve un semblant de vie normale. Mais quand une mystérieuse femme entraîne Dom dans le monde de la criminalité, ce dernier ne pourra éviter de trahir ses proches qui vont faire face à des épreuves qu’ils n’avaient jamais rencontrées jusqu’alors. ",
+            "urlImage": "https://fr.web.img6.acsta.net/c_310_420/pictures/17/03/03/17/27/305158.jpg",
+            "urlVideo": "https://www.youtube.com/embed/xFO-pKB13mw",
+            "genre": {
+                "id": 4,
+                "libelle": "Action"
+            },
+            "castActeur": [
+                {
+                    "id": 8,
+                    "prenom": "Diesel",
+                    "nom": "Vin"
+                },
+                {
+                    "id": 9,
+                    "prenom": "Johnsons",
+                    "nom": "Dwayne"
+                }
+            ],
+            "castRealisateur": {
+                "id": 4,
+                "prenom": "Gray",
+                "nom": "F.Gary"
+            },
+            "dateAjout": "2022-03-22"
+        }
+    ]
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-doc">
+        <div class="card-header">
+            Avis
+        </div>
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">/get-all-avis-by-film/{id}</h5>
+                <div class="icon-code" id="btn-avis-doc"><h6>Json Object</h6><i class="bi bi-caret-down"></i></div>
+                <div id="docAvis">
+                    <pre class="prettyprint">
+                        <code>
+    [
+        {
+        "id": 5,
+        "note": 5,
+        "commentaire": "vraiment génial",
+        "dateAjout": "2022-03-23",
+        "user": {
+            "nom": "colas",
+            "prenom": "vincent",
+            "username": "vinc-dev"
+        },
+        "film": {
+            "id": 8,
+            "titre": "Raya et le dernier dragon",
+            "dateSortie": "2021-06-04",
+            "duree": 107,
+            "synopsis": "Il y a de cela fort longtemps, au royaume imaginaire de Kumandra, humains et dragons vivaient en harmonie. Mais un jour, une force maléfique s’abattit sur le royaume et les dragons se sacrifièrent pour sauver l’humanité. Lorsque cette force réapparait cinq siècles plus tard, Raya, une guerrière solitaire, se met en quête du légendaire dernier dragon pour restaurer l’harmonie sur la terre de Kumandra, au sein d’un peuple désormais divisé. ",
+            "urlImage": "https://fr.web.img5.acsta.net/c_310_420/pictures/21/05/11/10/35/1825655.jpg",
+            "urlVideo": "https://www.youtube.com/embed/dwNumyXq-yA",
+            "genre": {
+                "id": 5,
+                "libelle": "Jeunesse"
+            },
+            "castActeur": [
+                {
+                    "id": 14,
+                    "prenom": "Tran",
+                    "nom": "Kelly Marie"
+                },
+                {
+                    "id": 15,
+                    "prenom": "Lum",
+                    "nom": "Awkwafina Nora"
+                }
+            ],
+            "castRealisateur": {
+                "id": 6,
+                "prenom": "Briggs",
+                "nom": "Paul"
+            },
+            "dateAjout": "2022-03-17"
+        }
+    },
+    {
+        "id": 6,
+        "note": 3,
+        "commentaire": "j'adore",
+        "dateAjout": "2022-03-25",
+        "user": {
+            "nom": "Terrieur",
+            "prenom": "Alain",
+            "username": "alainterrieur"
+        },
+        "film": {
+            "id": 8,
+            "titre": "Raya et le dernier dragon",
+            "dateSortie": "2021-06-04",
+            "duree": 107,
+            "synopsis": "Il y a de cela fort longtemps, au royaume imaginaire de Kumandra, humains et dragons vivaient en harmonie. Mais un jour, une force maléfique s’abattit sur le royaume et les dragons se sacrifièrent pour sauver l’humanité. Lorsque cette force réapparait cinq siècles plus tard, Raya, une guerrière solitaire, se met en quête du légendaire dernier dragon pour restaurer l’harmonie sur la terre de Kumandra, au sein d’un peuple désormais divisé. ",
+            "urlImage": "https://fr.web.img5.acsta.net/c_310_420/pictures/21/05/11/10/35/1825655.jpg",
+            "urlVideo": "https://www.youtube.com/embed/dwNumyXq-yA",
+            "genre": {
+                "id": 5,
+                "libelle": "Jeunesse"
+            },
+            "castActeur": [
+                {
+                    "id": 14,
+                    "prenom": "Tran",
+                    "nom": "Kelly Marie"
+                },
+                {
+                    "id": 15,
+                    "prenom": "Lum",
+                    "nom": "Awkwafina Nora"
+                }
+            ],
+            "castRealisateur": {
+                "id": 6,
+                "prenom": "Briggs",
+                "nom": "Paul"
+            },
+            "dateAjout": "2022-03-17"
+        }
+    }
+    ]
+                        </code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package com.film.tdfilmographie.bo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -9,6 +11,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @JsonIgnore
     private int id;
 
     @NotNull
@@ -21,19 +24,24 @@ public class User {
     private String username;
 
     @NotNull
+    @JsonIgnore
     private String email;
 
     @NotNull
+    @JsonIgnore
     private String password;
 
     @NotNull
+    @JsonIgnore
     private boolean admin = false;
 
+    @JsonIgnore
+    private boolean dev;
 
     public User() {
     }
 
-    public User(int id, String nom, String prenom, String username, String email, String password, boolean admin) {
+    public User(int id, String nom, String prenom, String username, String email, String password, boolean admin, boolean dev) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -41,6 +49,15 @@ public class User {
         this.email = email;
         this.password = password;
         this.admin = admin;
+        this.dev = dev;
+    }
+
+    public boolean isDev() {
+        return dev;
+    }
+
+    public void setDev(boolean dev) {
+        this.dev = dev;
     }
 
     public int getId() {

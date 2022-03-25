@@ -5,19 +5,28 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 public class Utilisateur implements UserDetails {
 
     private User user;
+    List<GrantedAuthority> role = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if(user.isAdmin()){
-            return List.of(new SimpleGrantedAuthority("ROLE_admin"), new SimpleGrantedAuthority("ROLE_user"));
+            role.add(new SimpleGrantedAuthority("ROLE_admin"));
+            role.add(new SimpleGrantedAuthority("ROLE_user"));
         } else {
-            return List.of(new SimpleGrantedAuthority("ROLE_user"));
+            role.add(new SimpleGrantedAuthority("ROLE_user"));
         }
+
+        if(user.isDev()){
+            role.add(new SimpleGrantedAuthority("ROLE_dev"));
+        }
+
+        return role;
     }
 
     public Utilisateur() {

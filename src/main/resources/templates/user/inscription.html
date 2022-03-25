@@ -43,6 +43,11 @@
                     <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="Password">
                     <label for="confirmPassword">Confirm Password</label>
                 </div>
+                <div class="form-check form-switch form-dev" data-toggle="tooltip" data-placement="right" title="Les développeurs on accès à la documentation de l'api.">
+                    <label class="form-check-label" for="dev">Développeur ?</label>
+                    <input class="form-check-input" type="checkbox" role="switch" id="dev" th:field="*{dev}">
+                    <span class="alert-danger" th:errors="*{dev}"></span>
+                </div>
                 <button class="btn btn-danger">Enregistrer</button>
             </form>
             <p>Déja inscrit ? <a th:href="@{/login}">Connectez vous.</a></p>

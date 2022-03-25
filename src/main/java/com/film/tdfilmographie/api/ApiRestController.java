@@ -52,11 +52,11 @@ public class ApiRestController {
         return filmService.getAllFilm();
     }
 
-    /*@GetMapping("/get-all-avis-by-film/{id}")
+    @GetMapping("/get-all-avis-by-film/{id}")
     public List<Avis> getAllAvisByFilm(@PathVariable int id){
         return avisService.getAllAvis(id);
     }
-
+/*
     @PostMapping("/register")
     public Object Object(@RequestBody String confirmPassword, @RequestBody User user) {
         if (!Objects.equals(confirmPassword, user.getPassword())) {

@@ -61,10 +61,12 @@ public class UserService implements UserImpl {
         userEntity.setEmail(user.getEmail());
         userEntity.setPassword(passwordEncoder.encode(user.getPassword()));
         userEntity.setAdmin(user.isAdmin());
+        userEntity.setDev(user.isDev());
         userRepository.save(userEntity);
 
         if(userEntity.getId() == 1){
             userEntity.setAdmin(true);
+            userEntity.setDev(true);
             userRepository.save(userEntity);
         }
         //users.add(user);

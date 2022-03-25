@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping()
 public class HomeController {
 
     @Autowired
     private FilmImpl filmService;
 
-    @GetMapping
+    @GetMapping("/")
     public String getHome(Model model){
         model.addAttribute("films", filmService.getAllRecent());
         return "home.html";
     }
 
-    @GetMapping("doc")
+    @GetMapping("/dev/doc")
     public String getDoc(){
         return "/api/documentation.html";
     }

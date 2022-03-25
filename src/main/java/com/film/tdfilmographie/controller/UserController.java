@@ -71,6 +71,10 @@ public class UserController {
             redirect.addFlashAttribute("message", "Une erreur c'est produite, merci de verifier les champs");
             return "redirect:/user/inscription";
         }
+        if(user.isDev()){
+            System.out.println(user.isDev());
+           // user.setDev(true);
+        }
         user.setAdmin(false);
         userService.addUser(user);
         redirect.addFlashAttribute("message", "Inscription réussi");

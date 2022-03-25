@@ -1,0 +1,24 @@
+.card-doc{
+    color: black;
+    width: 50%;
+    flex-direction: inherit;
+    margin: 50px auto;
+}
+.icon-code{
+display: flex;
+}
+#docGenre{
+    display: none;
+}
+#docActor{
+    display: none;
+}
+#docProducer{
+    display: none;
+}
+#docFilm{
+    display: none;
+}
+#docAvis{
+    display: none;
+}
