@@ -21,6 +21,7 @@
                 <th scope="col">Prenom</th>
                 <th scope="col">Username</th>
                 <th scope="col">Email</th>
+                <th scope="col">Dev </th>
                 <th scope="col">Admin</th>
                 <th scope="col">Update</th>
                 <th scope="col">Delete</th>
@@ -33,6 +34,8 @@
                 <td th:text="${user.prenom}"></td>
                 <td th:text="${user.username}"></td>
                 <td th:text="${user.email}"></td>
+                <td th:if="${user.dev == true}" class="green-text"><i class="bi bi-check-lg"></i></td>
+                <td th:if="${user.dev == false}" class="red-text"><i class="bi bi-x-square"></i></td>
                 <td th:if="${user.admin == true}" class="green-text"><i class="bi bi-check-lg"></i></td>
                 <td th:if="${user.admin == false}" class="red-text"><i class="bi bi-x-square"></i></td>
                 <td><a type="button" class="btn btn-warning"><i class="bi bi-pen"></i></a></td>
