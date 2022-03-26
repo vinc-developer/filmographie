@@ -20,17 +20,6 @@
             </div>
         </section>
 
-        <h3>Film d'Action</h3>
-        <section id="list-film-home-action">
-            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 4}">
-                <div class="card-header" th:text="${film.genre.libelle}"></div>
-                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
-                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
-                </a>
-
-            </div>
-        </section>
-
         <h3>Film de Science-Fiction</h3>
         <section id="list-film-home-science">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 2}">
@@ -41,7 +30,38 @@
             </div>
         </section>
 
-        <h3>Film de Commédie</h3>
+        <h3>Film d'Action</h3>
+        <section id="list-film-home-action">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 4}">
+                <div class="card-header" th:text="${film.genre.libelle}"></div>
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </section>
+
+
+        <h3>Film d'aventure</h3>
+        <section id="list-film-home-science">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 6}">
+                <div class="card-header" th:text="${film.genre.libelle}"></div>
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </section>
+
+        <h3>Film Dramatique</h3>
+        <section id="list-film-home-science">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 7}">
+                <div class="card-header" th:text="${film.genre.libelle}"></div>
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </section>
+
+        <h3>Film de Comédie</h3>
         <section id="list-film-home-science">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 3}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
@@ -51,10 +71,19 @@
             </div>
         </section>
 
-
         <h3>Film jeunesse</h3>
         <section id="list-film-home-science">
             <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 5}">
+                <div class="card-header" th:text="${film.genre.libelle}"></div>
+                <a th:href="@{'/private/film/get-one/' + ${film.id}}">
+                    <img th:src="${film.urlImage}" class="card-img-top" alt="...">
+                </a>
+            </div>
+        </section>
+
+        <h3>Documenatire</h3>
+        <section id="list-film-home-science">
+            <div class="card card-film-home" style="width: 18rem;" th:each="film : ${films}" th:if="${film.genre.id == 8}">
                 <div class="card-header" th:text="${film.genre.libelle}"></div>
                 <a th:href="@{'/private/film/get-one/' + ${film.id}}">
                     <img th:src="${film.urlImage}" class="card-img-top" alt="...">

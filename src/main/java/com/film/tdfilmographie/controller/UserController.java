@@ -44,7 +44,7 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String getLoginUser(Model model){
+    public String getLoginUser(){
         return "/user/login.html";
     }
 
@@ -73,7 +73,6 @@ public class UserController {
         }
         if(user.isDev()){
             System.out.println(user.isDev());
-           // user.setDev(true);
         }
         user.setAdmin(false);
         userService.addUser(user);

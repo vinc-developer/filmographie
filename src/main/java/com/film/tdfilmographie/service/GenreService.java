@@ -18,10 +18,13 @@ public class GenreService implements GenreImpl {
 
     public GenreService(){
         Genre G1 = new Genre(1,"Horreur");
-        Genre G2 = new Genre(2,"Science-fiction");
+        Genre G2 = new Genre(2,"Science-Fiction");
         Genre G3 = new Genre(3,"Comedie");
         Genre G4 = new Genre(4,"Action");
         Genre G5 = new Genre(5, "Jeunesse");
+        Genre g6 = new Genre(6, "Aventure");
+        Genre G4 = new Genre(7,"Drame");
+        Genre g6 = new Genre(8, "Documentaire");
 
         genres.add(G1);
         genres.add(G2);

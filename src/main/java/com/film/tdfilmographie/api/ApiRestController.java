@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @CrossOrigin
@@ -15,9 +14,6 @@ public class ApiRestController {
 
     @Autowired
     private GenreImpl genreService;
-
-    @Autowired
-    private UserImpl userService;
 
     @Autowired
     private CastActeurImpl castActeurService;
@@ -30,7 +26,6 @@ public class ApiRestController {
 
     @Autowired
     AvisImpl avisService;
-
 
     @GetMapping("/get-all-genre")
     public List<Genre> getAllGenre() {
@@ -56,14 +51,4 @@ public class ApiRestController {
     public List<Avis> getAllAvisByFilm(@PathVariable int id){
         return avisService.getAllAvis(id);
     }
-/*
-    @PostMapping("/register")
-    public Object Object(@RequestBody String confirmPassword, @RequestBody User user) {
-        if (!Objects.equals(confirmPassword, user.getPassword())) {
-            return "{'message': 'Les mots de passe ne correspondent pas.'}";
-        }
-        user.setAdmin(false);
-        userService.addUser(user);
-        return user;
-    }*/
 }
